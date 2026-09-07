@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="mfoDark" x1="18" y1="18" x2="84" y2="84" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0f5f62" />
+      <stop offset="55%" stop-color="#0a3f4c" />
+      <stop offset="100%" stop-color="#3cab95" />
+    </linearGradient>
+    <linearGradient id="mfoMint" x1="54" y1="30" x2="84" y2="46" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#aeeeb8" />
+      <stop offset="100%" stop-color="#7ad4a8" />
+    </linearGradient>
+  </defs>
+
+  <path d="M24 75V31" fill="none" stroke="url(#mfoDark)" stroke-width="16" stroke-linecap="round" />
+  <path d="M24 31L50 57" fill="none" stroke="url(#mfoDark)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M50 57L76 31" fill="none" stroke="url(#mfoMint)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M76 31V75" fill="none" stroke="url(#mfoDark)" stroke-width="16" stroke-linecap="round" />
+
+  <path d="M37 42V68" fill="none" stroke="#edf8f4" stroke-width="4.5" stroke-linecap="round" />
+  <circle cx="37" cy="74.5" r="5.8" fill="#edf8f4" />
+</svg>

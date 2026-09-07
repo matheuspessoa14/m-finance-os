@@ -1,0 +1,100 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedInAs(userId) {
+      return request.auth != null && request.auth.uid == userId;
+    }
+
+    function validAuditFields(data) {
+      return (!('createdAt' in data) || data.createdAt is timestamp)
+          && (!('updatedAt' in data) || data.updatedAt is timestamp);
+    }
+
+    function validAmount(value) {
+      return value is number && value > 0 && value <= 999999999.99;
+    }
+
+    function shortText(value, maxSize) {
+      return value is string && value.size() <= maxSize;
+    }
+
+    match /users/{userId}/incomes/{docId} {
+      allow read, delete: if signedInAs(userId);
+
+      allow create, update: if signedInAs(userId)
+        && request.resource.data.keys().hasOnly([
+          'date', 'description', 'source', 'type', 'amount', 'status',
+          'createdAt', 'updatedAt'
+        ])
+        && shortText(request.resource.data.date, 10)
+        && shortText(request.resource.data.description, 180)
+        && shortText(request.resource.data.source, 120)
+        && request.resource.data.source.size() > 0
+        && request.resource.data.type in ['Fixa', 'Variável', 'Extra']
+        && validAmount(request.resource.data.amount)
+        && request.resource.data.status in ['Recebida', 'Pendente']
+        && validAuditFields(request.resource.data);
+    }
+
+    match /users/{userId}/expenses/{docId} {
+      allow read, delete: if signedInAs(userId);
+
+      allow create, update: if signedInAs(userId)
+        && request.resource.data.keys().hasOnly([
+          'date', 'description', 'category', 'amount', 'status',
+          'createdAt', 'updatedAt'
+        ])
+        && shortText(request.resource.data.date, 10)
+        && shortText(request.resource.data.description, 180)
+        && request.resource.data.description.size() > 0
+        && shortText(request.resource.data.category, 100)
+        && validAmount(request.resource.data.amount)
+        && request.resource.data.status in ['Pago', 'Pendente']
+        && validAuditFields(request.resource.data);
+    }
+
+    match /users/{userId}/allocations/{docId} {
+      allow read, delete: if signedInAs(userId);
+
+      allow create, update: if signedInAs(userId)
+        && request.resource.data.keys().hasOnly([
+          'date', 'destination', 'type', 'amount', 'goal',
+          'createdAt', 'updatedAt'
+        ])
+        && shortText(request.resource.data.date, 10)
+        && shortText(request.resource.data.destination, 120)
+        && request.resource.data.destination.size() > 0
+        && request.resource.data.type in ['Reserva', 'Investimento']
+        && validAmount(request.resource.data.amount)
+        && shortText(request.resource.data.goal, 180)
+        && validAuditFields(request.resource.data);
+    }
+
+    match /users/{userId}/installments/{docId} {
+      allow read, delete: if signedInAs(userId);
+
+      allow create, update: if signedInAs(userId)
+        && request.resource.data.keys().hasOnly([
+          'name', 'category', 'purchaseDate', 'firstDue', 'total',
+          'installments', 'paidMonths', 'paidInstallments',
+          'createdAt', 'updatedAt'
+        ])
+        && shortText(request.resource.data.name, 120)
+        && request.resource.data.name.size() > 0
+        && shortText(request.resource.data.category, 100)
+        && shortText(request.resource.data.purchaseDate, 10)
+        && shortText(request.resource.data.firstDue, 10)
+        && validAmount(request.resource.data.total)
+        && request.resource.data.installments is int
+        && request.resource.data.installments > 0
+        && request.resource.data.installments <= 120
+        && request.resource.data.paidMonths is list
+        && request.resource.data.paidMonths.size() <= request.resource.data.installments
+        && request.resource.data.paidInstallments is int
+        && request.resource.data.paidInstallments >= 0
+        && request.resource.data.paidInstallments <= request.resource.data.installments
+        && validAuditFields(request.resource.data);
+    }
+  }
+}
