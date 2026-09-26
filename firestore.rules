@@ -19,12 +19,28 @@ service cloud.firestore {
       return value is string && value.size() <= maxSize;
     }
 
+    function validRecurringBase(data) {
+      return (!('recurring' in data) || data.recurring is bool)
+          && (!('recurrenceEnd' in data) || shortText(data.recurrenceEnd, 10));
+    }
+
+    function validReceivedMonths(data) {
+      return !('receivedMonths' in data)
+          || (data.receivedMonths is list && data.receivedMonths.size() <= 600);
+    }
+
+    function validPaidMonths(data) {
+      return !('paidMonths' in data)
+          || (data.paidMonths is list && data.paidMonths.size() <= 600);
+    }
+
     match /users/{userId}/incomes/{docId} {
       allow read, delete: if signedInAs(userId);
 
       allow create, update: if signedInAs(userId)
         && request.resource.data.keys().hasOnly([
           'date', 'description', 'source', 'type', 'amount', 'status',
+          'recurring', 'recurrenceEnd', 'receivedMonths',
           'createdAt', 'updatedAt'
         ])
         && shortText(request.resource.data.date, 10)
@@ -34,6 +50,8 @@ service cloud.firestore {
         && request.resource.data.type in ['Fixa', 'Variável', 'Extra']
         && validAmount(request.resource.data.amount)
         && request.resource.data.status in ['Recebida', 'Pendente']
+        && validRecurringBase(request.resource.data)
+        && validReceivedMonths(request.resource.data)
         && validAuditFields(request.resource.data);
     }
 
@@ -43,14 +61,16 @@ service cloud.firestore {
       allow create, update: if signedInAs(userId)
         && request.resource.data.keys().hasOnly([
           'date', 'description', 'category', 'amount', 'status',
+          'recurring', 'recurrenceEnd', 'paidMonths',
           'createdAt', 'updatedAt'
         ])
         && shortText(request.resource.data.date, 10)
         && shortText(request.resource.data.description, 180)
-        && request.resource.data.description.size() > 0
         && shortText(request.resource.data.category, 100)
         && validAmount(request.resource.data.amount)
         && request.resource.data.status in ['Pago', 'Pendente']
+        && validRecurringBase(request.resource.data)
+        && validPaidMonths(request.resource.data)
         && validAuditFields(request.resource.data);
     }
 
@@ -64,7 +84,6 @@ service cloud.firestore {
         ])
         && shortText(request.resource.data.date, 10)
         && shortText(request.resource.data.destination, 120)
-        && request.resource.data.destination.size() > 0
         && request.resource.data.type in ['Reserva', 'Investimento']
         && validAmount(request.resource.data.amount)
         && shortText(request.resource.data.goal, 180)

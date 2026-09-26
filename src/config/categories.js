@@ -1,0 +1,17 @@
+export const DEFAULT_EXPENSE_CATEGORIES = [
+  "Uber / 99",
+  "Lanche",
+  "Almoço",
+  "Mercado",
+  "Transporte",
+  "Combustível",
+  "Saúde",
+  "Farmácia",
+  "Lazer",
+  "Assinaturas",
+  "Contas",
+  "Casa",
+  "Educação",
+  "Compras",
+  "Outros",
+];
