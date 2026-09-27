@@ -89,7 +89,7 @@ export function ExpensesPage({
 export function AllocationsPage({ items, onAdd, onEdit, onDelete }) {
   return (
     <ListPage
-      title="Reserva & investimentos"
+      title="Reserva & Investimentos"
       subtitle="Veja quanto você separou no mês e como esse dinheiro se divide entre reservas e investimentos."
       button="Novo aporte"
       icon={PiggyBank}

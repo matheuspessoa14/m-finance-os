@@ -267,7 +267,7 @@ export function Dashboard({
           {BRAND.systemLabel} · {monthName}
         </span>
         <h1>Resumo</h1>
-        <p>Seu dinheiro, de forma simples e clara.</p>
+        <p>Seu dinheiro, de forma simples e clara sem papel e caneta!</p>
       </section>
 
       <section className="final-dashboard-hero">
@@ -447,7 +447,7 @@ export function Dashboard({
           </ChartCard>
 
           <ChartCard
-            title="Renda vs saídas"
+            title="Renda vs Saídas"
             subtitle="Renda recebida comparada aos compromissos do mês."
           >
             <div className="final-dashboard-bar-chart">

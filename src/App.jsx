@@ -241,6 +241,7 @@ export default function App() {
 
 
   const [pendingOperations, setPendingOperations] = useState(0);
+  const [minimumSplashElapsed, setMinimumSplashElapsed] = useState(false);
 
   const [expensePaymentBusyId, setExpensePaymentBusyId] = useState(null);
 
@@ -269,6 +270,14 @@ export default function App() {
 
 
   useEffect(() => onAuthStateChanged(auth, setUser), []);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      setMinimumSplashElapsed(true);
+    }, 1300);
+
+    return () => window.clearTimeout(timer);
+  }, []);
 
 
 
@@ -1142,7 +1151,7 @@ export default function App() {
 
 
 
-  if (user === undefined) return <Splash />;
+  if (user === undefined || !minimumSplashElapsed) return <Splash />;
 
 
 

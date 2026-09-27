@@ -1,59 +1,258 @@
-import { Download, LogOut, MonitorSmartphone, ShieldCheck, Trash2, UserRound } from "lucide-react";
-import { capitalize, monthLabel, parseMonth } from "../utils/date";
+import {
+  Download,
+  LogOut,
+  MonitorSmartphone,
+  ShieldCheck,
+  Trash2,
+  UserRound,
+} from "lucide-react";
+import {
+  capitalize,
+  monthLabel,
+  parseMonth,
+} from "../utils/date";
 
-export function AccountPage({ user, month, onExport, onPrivacy, onLogout, onDeleteAccount, pwa }) {
+function AccountActionCard({
+  icon: Icon,
+  eyebrow,
+  title,
+  text,
+  action,
+  tone = "default",
+  children,
+}) {
   return (
-    <div className="content">
-      <section className="page-heading account-heading">
+    <article className={`account-modern-action account-modern-action--${tone}`}>
+      <div className="account-modern-action-head">
+        <span className="account-modern-action-icon">
+          <Icon size={19} />
+        </span>
+
         <div>
-          <span className="eyebrow">CONTA & CONFIGURAÇÕES</span>
+          <small>{eyebrow}</small>
+          <h3>{title}</h3>
+        </div>
+      </div>
+
+      {text && <p>{text}</p>}
+
+      {children}
+
+      {action && (
+        <div className="account-modern-action-footer">
+          {action}
+        </div>
+      )}
+    </article>
+  );
+}
+
+export function AccountPage({
+  user,
+  month,
+  onExport,
+  onPrivacy,
+  onLogout,
+  onDeleteAccount,
+  pwa,
+}) {
+  const currentMonthLabel = capitalize(
+    monthLabel.format(parseMonth(month))
+  );
+
+  const displayName = user.displayName || "Minha conta";
+  const initial = (
+    user.displayName ||
+    user.email ||
+    "M"
+  )[0]?.toUpperCase();
+
+  return (
+    <div className="content account-modern-page">
+      <section className="page-heading account-modern-heading">
+        <div>
+          <span className="eyebrow">
+            CONTA & CONFIGURAÇÕES
+          </span>
+
           <h1>Minha conta</h1>
-          <p>Gerencie seus dados, exportações, instalação do aplicativo e privacidade.</p>
+
+          <p>
+            Perfil, privacidade, exportação e acesso ao
+            M Finance.OS em um só lugar.
+          </p>
         </div>
       </section>
 
-      <section className="account-grid">
-        <article className="settings-card profile-settings-card">
-          <div className="settings-card-header"><UserRound size={20} /><div><strong>Perfil</strong><span>Conta conectada pelo Google</span></div></div>
-          <div className="profile-summary">
-            {user.photoURL ? <img src={user.photoURL} alt="" referrerPolicy="no-referrer" /> : <div className="avatar-fallback large">{(user.displayName || user.email || "M")[0]}</div>}
-            <div><strong>{user.displayName || "Minha conta"}</strong><span>{user.email}</span><small>UID: {user.uid}</small></div>
+      <section className="account-modern-profile">
+        <div className="account-modern-profile-main">
+          <div className="account-modern-avatar">
+            {user.photoURL ? (
+              <img
+                src={user.photoURL}
+                alt=""
+                referrerPolicy="no-referrer"
+              />
+            ) : (
+              <span>{initial}</span>
+            )}
           </div>
-        </article>
 
-        <article className="settings-card">
-          <div className="settings-card-header"><Download size={20} /><div><strong>Exportar dados</strong><span>Backup do período atual em CSV</span></div></div>
-          <p>Baixe os lançamentos de {capitalize(monthLabel.format(parseMonth(month)))} para abrir no Excel, Google Sheets ou guardar como backup.</p>
-          <button type="button" className="primary-button" onClick={() => onExport(month)}><Download size={17} /> Exportar mês</button>
-        </article>
+          <div className="account-modern-profile-copy">
+            <div className="account-modern-profile-label">
+              <UserRound size={14} />
+              <span>PERFIL CONECTADO</span>
+            </div>
 
-        <article className="settings-card">
-          <div className="settings-card-header"><MonitorSmartphone size={20} /><div><strong>Instalar no celular</strong><span>Use como um aplicativo</span></div></div>
+            <strong>{displayName}</strong>
+            <span>{user.email}</span>
+          </div>
+        </div>
+
+        <div className="account-modern-profile-meta">
+          <span className="account-modern-google-badge">
+            <ShieldCheck size={14} />
+            Conta Google
+          </span>
+
+          <small title={user.uid}>
+            ID da conta · {user.uid}
+          </small>
+        </div>
+      </section>
+
+      <section className="account-modern-grid">
+        <AccountActionCard
+          icon={Download}
+          eyebrow="BACKUP"
+          title="Exportar dados"
+          text={`Baixe os lançamentos de ${currentMonthLabel} em CSV para abrir no Excel, Google Sheets ou guardar como backup.`}
+          tone="export"
+          action={
+            <button
+              type="button"
+              className="primary-button"
+              onClick={() => onExport(month)}
+            >
+              <Download size={17} />
+              Exportar mês
+            </button>
+          }
+        />
+
+        <AccountActionCard
+          icon={MonitorSmartphone}
+          eyebrow="APLICATIVO"
+          title="Instalar no celular"
+          tone="install"
+        >
           {pwa.installed ? (
-            <p className="settings-success">✓ O M Finance.OS já está instalado neste dispositivo.</p>
+            <div className="account-modern-status account-modern-status--success">
+              <ShieldCheck size={16} />
+              <div>
+                <strong>Aplicativo instalado</strong>
+                <span>
+                  O M Finance.OS já está disponível neste
+                  dispositivo.
+                </span>
+              </div>
+            </div>
           ) : pwa.canInstall ? (
-            <button type="button" className="primary-button" onClick={pwa.install}><MonitorSmartphone size={17} /> Instalar M Finance.OS</button>
+            <>
+              <p>
+                Instale o M Finance.OS para abrir em tela cheia e
+                acessar como um aplicativo.
+              </p>
+
+              <div className="account-modern-action-footer">
+                <button
+                  type="button"
+                  className="primary-button"
+                  onClick={pwa.install}
+                >
+                  <MonitorSmartphone size={17} />
+                  Instalar aplicativo
+                </button>
+              </div>
+            </>
           ) : (
-            <p>No iPhone, abra pelo Safari e use <strong>Compartilhar → Adicionar à Tela de Início</strong>. No Android, prefira o <strong>Google Chrome atualizado</strong> e procure “Instalar app” ou “Adicionar à tela inicial” no menu.</p>
+            <div className="account-modern-install-help">
+              <strong>Adicionar à tela inicial</strong>
+
+              <span>
+                iPhone: Safari → Compartilhar → Adicionar à Tela
+                de Início.
+              </span>
+
+              <span>
+                Android: Chrome → menu → Instalar app ou
+                Adicionar à tela inicial.
+              </span>
+            </div>
           )}
-        </article>
+        </AccountActionCard>
 
-        <article className="settings-card">
-          <div className="settings-card-header"><ShieldCheck size={20} /><div><strong>Privacidade</strong><span>Como seus dados são armazenados</span></div></div>
-          <p>Veja quais informações o aplicativo usa, como o Firebase protege cada conta e como solicitar a exclusão dos dados.</p>
-          <button type="button" className="secondary-button" onClick={onPrivacy}><ShieldCheck size={17} /> Ver privacidade</button>
-        </article>
+        <AccountActionCard
+          icon={ShieldCheck}
+          eyebrow="SEGURANÇA"
+          title="Privacidade"
+          text="Veja como seus dados são usados, armazenados e protegidos dentro do aplicativo."
+          tone="privacy"
+          action={
+            <button
+              type="button"
+              className="secondary-button"
+              onClick={onPrivacy}
+            >
+              <ShieldCheck size={17} />
+              Ver privacidade
+            </button>
+          }
+        />
 
-        <article className="settings-card session-card">
-          <div className="settings-card-header"><LogOut size={20} /><div><strong>Sessão</strong><span>Encerrar acesso neste navegador</span></div></div>
-          <button type="button" className="secondary-button" onClick={onLogout}><LogOut size={17} /> Sair da conta</button>
-        </article>
+        <AccountActionCard
+          icon={LogOut}
+          eyebrow="SESSÃO"
+          title="Acesso atual"
+          text="Encerre o acesso neste navegador sem excluir nenhum dado da sua conta."
+          tone="session"
+          action={
+            <button
+              type="button"
+              className="secondary-button"
+              onClick={onLogout}
+            >
+              <LogOut size={17} />
+              Sair da conta
+            </button>
+          }
+        />
+      </section>
 
-        <article className="settings-card danger-zone">
-          <div className="settings-card-header"><Trash2 size={20} /><div><strong>Excluir minha conta</strong><span>Ação permanente</span></div></div>
-          <p>Remove suas rendas, gastos, parcelas, aportes e depois exclui a conta de autenticação. Essa ação não pode ser desfeita.</p>
-          <button type="button" className="danger-button" onClick={onDeleteAccount}><Trash2 size={17} /> Excluir conta e dados</button>
-        </article>
+      <section className="account-modern-danger">
+        <div className="account-modern-danger-copy">
+          <span className="account-modern-danger-icon">
+            <Trash2 size={18} />
+          </span>
+
+          <div>
+            <small>ZONA SENSÍVEL</small>
+            <strong>Excluir minha conta</strong>
+            <p>
+              Remove rendas, gastos, parcelas, aportes e a conta
+              de autenticação. Essa ação não pode ser desfeita.
+            </p>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          className="danger-button"
+          onClick={onDeleteAccount}
+        >
+          <Trash2 size={17} />
+          Excluir conta e dados
+        </button>
       </section>
     </div>
   );

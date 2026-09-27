@@ -1,9 +1,16 @@
 import { useState } from "react";
 import { signInWithPopup } from "firebase/auth";
-import { BarChart3, Cloud, PiggyBank, ShieldCheck, WalletCards } from "lucide-react";
+import {
+  ArrowRight,
+  LockKeyhole,
+  ShieldCheck,
+} from "lucide-react";
 import { auth, googleProvider } from "../firebase";
 import { BRAND } from "../config/brand";
-import { BrandGlyph, GoogleGlyph } from "../components/BrandGlyph";
+import {
+  BrandGlyph,
+  GoogleGlyph,
+} from "../components/BrandGlyph";
 
 export function Login({ onPrivacy }) {
   const [loading, setLoading] = useState(false);
@@ -16,61 +23,125 @@ export function Login({ onPrivacy }) {
       await signInWithPopup(auth, googleProvider);
     } catch (loginError) {
       console.error("Erro no login:", loginError);
-      setError("Não foi possível entrar com o Google. Tente novamente.");
+
+      if (
+        loginError?.code === "auth/popup-closed-by-user" ||
+        loginError?.code === "auth/cancelled-popup-request"
+      ) {
+        setError(
+          "O acesso foi cancelado. Tente novamente quando quiser."
+        );
+      } else {
+        setError(
+          "Não foi possível entrar com o Google. Tente novamente."
+        );
+      }
     } finally {
       setLoading(false);
     }
   }
 
   return (
-    <div className="login-screen">
-      <main className="login-shell">
-        <section className="login-showcase">
-          <div className="login-brand">
-            <div className="brand-mark logo-plain login-brand-icon"><BrandGlyph size={58} /></div>
+    <div className="login-screen login-minimal-screen">
+      <main className="login-minimal-card">
+        <section className="login-minimal-brand-panel">
+          <div className="login-minimal-grid" aria-hidden="true" />
+
+          <div className="login-minimal-brand">
+            <div className="brand-mark logo-plain login-minimal-logo">
+              <BrandGlyph size={58} />
+            </div>
+
             <div>
               <strong>{BRAND.appName}</strong>
               <span>PERSONAL FINANCE SYSTEM</span>
             </div>
           </div>
 
-          <div className="login-showcase-copy">
-            <span className="login-kicker">FINANÇAS PESSOAIS • CLOUD SYNC</span>
-            <h1>Seu dinheiro,<br /><span>mais claro.</span></h1>
-            <p>Organize rendas, gastos, parcelas e valores guardados em um só lugar — com uma visão mensal simples do que realmente está livre.</p>
+          <div className="login-minimal-message">
+            <span>SEU DINHEIRO • MAIS CLARO</span>
+            <h1>
+              Controle simples.
+              <br />
+              <em>Decisões melhores.</em>
+            </h1>
           </div>
 
-          <div className="login-feature-grid">
-            <div className="login-feature"><BarChart3 size={20} /><div><strong>Visão mensal</strong><span>Entenda para onde seu dinheiro está indo.</span></div></div>
-            <div className="login-feature"><WalletCards size={20} /><div><strong>Tudo organizado</strong><span>Rendas, gastos e parcelas no mesmo fluxo.</span></div></div>
-            <div className="login-feature"><PiggyBank size={20} /><div><strong>Planeje melhor</strong><span>Acompanhe quanto você consegue guardar.</span></div></div>
-          </div>
-
-          <div className="login-cloud-status"><span className="status-dot" /><span>Dados sincronizados com sua conta</span><Cloud size={16} /></div>
+          <div
+            className="login-minimal-orbit login-minimal-orbit--one"
+            aria-hidden="true"
+          />
+          <div
+            className="login-minimal-orbit login-minimal-orbit--two"
+            aria-hidden="true"
+          />
         </section>
 
-        <section className="login-auth">
-          <div className="login-auth-heading">
+        <section className="login-minimal-auth">
+          <div className="login-minimal-auth-copy">
             <span className="eyebrow">ACESSO SEGURO</span>
             <h2>Bem-vindo.</h2>
-            <p>Entre com sua conta Google para acessar seu espaço financeiro.</p>
+            <p>
+              Entre com sua conta Google para acessar seu espaço
+              financeiro.
+            </p>
           </div>
 
-          <button className="google-login-button" onClick={login} disabled={loading}>
-            <span className="google-icon-wrap"><GoogleGlyph size={21} /></span>
-            <span>{loading ? "Entrando..." : "Continuar com Google"}</span>
+          <button
+            type="button"
+            className="login-minimal-google"
+            onClick={login}
+            disabled={loading}
+          >
+            <span className="login-minimal-google-icon">
+              <GoogleGlyph size={21} />
+            </span>
+
+            <span>
+              {loading ? "Entrando..." : "Continuar com Google"}
+            </span>
+
+            <ArrowRight size={18} />
           </button>
 
-          {error && <div className="login-error" role="alert">{error}</div>}
+          {error && (
+            <div
+              className="login-error login-minimal-error"
+              role="alert"
+            >
+              {error}
+            </div>
+          )}
 
-          <div className="login-security">
-            <ShieldCheck size={18} />
-            <div><strong>Seus dados são privados</strong><span>Cada conta acessa somente os próprios registros financeiros.</span></div>
+          <div className="login-minimal-trust">
+            <span>
+              <ShieldCheck size={17} />
+            </span>
+
+            <div>
+              <strong>Seus dados são privados</strong>
+              <small>
+                Cada conta acessa somente os próprios registros.
+              </small>
+            </div>
           </div>
 
-          <button type="button" className="privacy-link" onClick={onPrivacy}>Privacidade e uso de dados</button>
+          <div className="login-minimal-bottom">
+            <button
+              type="button"
+              className="privacy-link"
+              onClick={onPrivacy}
+            >
+              Privacidade
+            </button>
 
-          <div className="login-auth-footer"><span>{BRAND.author}</span><span>•</span><span>{BRAND.appName}</span></div>
+            <span aria-hidden="true">•</span>
+
+            <div>
+              <LockKeyhole size={12} />
+              <span>Conexão segura</span>
+            </div>
+          </div>
         </section>
       </main>
     </div>
@@ -79,9 +150,58 @@ export function Login({ onPrivacy }) {
 
 export function Splash() {
   return (
-    <div className="splash">
-      <div className="brand-mark logo-plain"><BrandGlyph size={28} /></div>
-      <strong>{BRAND.appName}</strong>
+    <div
+      className="splash splash-launch"
+      role="status"
+      aria-live="polite"
+      aria-label="Abrindo M Finance.OS"
+    >
+      <div className="splash-launch-bg" aria-hidden="true">
+        <span className="splash-launch-light splash-launch-light--one" />
+        <span className="splash-launch-light splash-launch-light--two" />
+        <span className="splash-launch-grid" />
+      </div>
+
+      <div className="splash-launch-stage">
+        <div className="splash-launch-mark-wrap">
+          <span
+            className="splash-launch-halo splash-launch-halo--outer"
+            aria-hidden="true"
+          />
+          <span
+            className="splash-launch-halo splash-launch-halo--inner"
+            aria-hidden="true"
+          />
+
+          <div className="splash-launch-mark">
+            <div className="brand-mark logo-plain">
+              <BrandGlyph size={80} />
+            </div>
+
+            <span
+              className="splash-launch-shine"
+              aria-hidden="true"
+            />
+          </div>
+        </div>
+
+        <div className="splash-launch-wordmark">
+          <strong>{BRAND.appName}</strong>
+          <span>Seu dinheiro, mais claro.</span>
+        </div>
+
+        <div
+          className="splash-launch-loader"
+          aria-hidden="true"
+        >
+          <i />
+        </div>
+      </div>
+
+      <div className="splash-launch-status">
+        <span />
+        <small>Preparando seu espaço financeiro</small>
+      </div>
     </div>
   );
 }
