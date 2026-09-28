@@ -7997,3 +7997,296 @@ button.final-dashboard-metric {
     padding: 12px;
   }
 }
+
+/* =========================================================
+   M FINANCE.OS — MOBILE USABILITY HOTFIX
+   Ajustes para iPhone/Android:
+   - registros sem esmagar texto e status
+   - ações em linha própria
+   - espaço real para a navegação inferior
+   - modal adaptado ao teclado virtual
+   ========================================================= */
+
+@media (max-width: 760px) {
+  /* -------------------------------------------------------
+     LISTAS — cards realmente mobile
+     ------------------------------------------------------- */
+
+  .income-overview,
+  .expense-overview,
+  .installment-overview,
+  .allocation-overview {
+    padding-bottom: calc(104px + env(safe-area-inset-bottom));
+  }
+
+  .income-overview .records,
+  .expense-overview .records {
+    gap: 10px;
+  }
+
+  .income-overview .record,
+  .expense-overview .record {
+    min-height: 0;
+    padding: 14px 13px;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    grid-template-areas:
+      "main value"
+      "actions actions";
+    align-items: start !important;
+    column-gap: 12px !important;
+    row-gap: 12px !important;
+    border-radius: 17px;
+  }
+
+  .income-overview .record-main,
+  .expense-overview .record-main {
+    grid-area: main;
+    min-width: 0 !important;
+    width: 100%;
+  }
+
+  .income-overview .record-main > strong,
+  .expense-overview .record-main > strong {
+    display: block;
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+    line-height: 1.25;
+  }
+
+  .income-overview .record-meta,
+  .expense-overview .record-meta {
+    min-width: 0;
+    margin-top: 7px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .income-overview .record-meta > span:first-child,
+  .expense-overview .record-meta > span:first-child {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: normal;
+    white-space: normal;
+    font-size: 9px;
+    line-height: 1.45;
+  }
+
+  .income-overview .status-badge,
+  .expense-overview .status-badge {
+    width: max-content;
+    max-width: 100%;
+    min-height: 22px;
+    padding-inline: 8px;
+    white-space: nowrap;
+    writing-mode: horizontal-tb;
+    word-break: keep-all;
+    overflow-wrap: normal;
+    font-size: 7px;
+  }
+
+  .income-overview .record-value,
+  .expense-overview .record-value {
+    grid-area: value;
+    min-width: max-content;
+    padding-top: 1px;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .income-overview .record-value strong,
+  .expense-overview .record-value strong {
+    font-size: 11px;
+    line-height: 1.2;
+  }
+
+  .income-overview .record-actions,
+  .expense-overview .record-actions {
+    grid-area: actions;
+    width: 100%;
+    min-width: 0;
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  .income-overview .record-actions .income-receive-button,
+  .expense-overview .record-actions .expense-pay-button {
+    min-width: 0;
+    min-height: 42px;
+    flex: 1 1 auto;
+    justify-content: center;
+    padding-inline: 12px;
+    border-radius: 12px;
+    font-size: 8px;
+  }
+
+  .income-overview .record-actions .icon-button,
+  .expense-overview .record-actions .icon-button {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    flex: 0 0 42px;
+    border-radius: 12px;
+  }
+
+  .income-overview .record-actions > .icon-button:first-of-type,
+  .expense-overview .record-actions > .icon-button:first-of-type {
+    margin-left: auto;
+  }
+
+  /* Cabeçalho da seção também precisa respirar em telas estreitas. */
+  .income-section-header,
+  .expense-section-header {
+    align-items: flex-start;
+  }
+
+  .income-section-header > div,
+  .expense-section-header > div {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .income-section-total,
+  .expense-section-total {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  /* -------------------------------------------------------
+     MODAL — comportamento de bottom sheet + teclado virtual
+     ------------------------------------------------------- */
+
+  .modal-backdrop {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+    padding:
+      max(10px, env(safe-area-inset-top))
+      0
+      0 !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+  }
+
+  .modal-card {
+    width: 100% !important;
+    max-width: none !important;
+    max-height: calc(100dvh - max(10px, env(safe-area-inset-top))) !important;
+    margin: 0 !important;
+    padding: 0 18px max(12px, env(safe-area-inset-bottom)) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 26px 26px 0 0 !important;
+    scroll-padding-top: 92px;
+    scroll-padding-bottom: 92px;
+  }
+
+  .modal-header {
+    position: sticky !important;
+    top: 0;
+    z-index: 20;
+    margin: 0 -18px 16px !important;
+    padding: 18px 18px 14px !important;
+    border-bottom: 1px solid #e4ece8;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .modal-footer {
+    position: sticky !important;
+    bottom: calc(-1 * max(12px, env(safe-area-inset-bottom)));
+    z-index: 20;
+    margin: 18px -18px calc(-1 * max(12px, env(safe-area-inset-bottom))) !important;
+    padding:
+      12px
+      18px
+      max(12px, env(safe-area-inset-bottom)) !important;
+    border-top: 1px solid #e4ece8;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .modal-footer .primary-button,
+  .modal-footer .secondary-button {
+    min-height: 46px;
+  }
+
+  /* O Safari amplia inputs com fonte menor que 16px.
+     Mantendo 16px evitamos zoom ao focar os campos. */
+  .modal-card input,
+  .modal-card select,
+  .modal-card textarea,
+  .modal-card .money-input input {
+    font-size: 16px !important;
+  }
+
+  .modal-card .field {
+    scroll-margin-top: 90px;
+    scroll-margin-bottom: 100px;
+  }
+}
+
+@media (max-width: 390px) {
+  .income-overview .record,
+  .expense-overview .record {
+    padding: 13px 12px;
+    column-gap: 9px !important;
+  }
+
+  .income-overview .record-value strong,
+  .expense-overview .record-value strong {
+    font-size: 10px;
+  }
+
+  .income-overview .record-actions,
+  .expense-overview .record-actions {
+    gap: 7px;
+  }
+
+  .income-overview .record-actions .icon-button,
+  .expense-overview .record-actions .icon-button {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    flex-basis: 40px;
+  }
+
+  .income-overview .record-actions .income-receive-button,
+  .expense-overview .record-actions .expense-pay-button {
+    min-height: 40px;
+    padding-inline: 9px;
+    font-size: 7.5px;
+  }
+
+  .modal-card {
+    padding-inline: 15px !important;
+  }
+
+  .modal-header {
+    margin-inline: -15px !important;
+    padding-inline: 15px !important;
+  }
+
+  .modal-footer {
+    margin-inline: -15px !important;
+    padding-inline: 15px !important;
+  }
+}
+
