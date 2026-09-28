@@ -2,7 +2,15 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 
 
 
+
+
+
+
 import { onAuthStateChanged, signOut } from "firebase/auth";
+
+
+
+
 
 
 
@@ -10,7 +18,15 @@ import { auth } from "./firebase";
 
 
 
+
+
+
+
 import { EntryModal } from "./components/EntryModal";
+
+
+
+
 
 
 
@@ -18,7 +34,15 @@ import { ConfirmDialog, OfflineBanner, ToastViewport } from "./components/Feedba
 
 
 
+
+
+
+
 import { DesktopSidebar, Header, MobileNav } from "./components/Layout";
+
+
+
+
 
 
 
@@ -26,7 +50,15 @@ import { useFinanceCollections } from "./hooks/useFinanceCollections";
 
 
 
+
+
+
+
 import { usePwaInstall } from "./hooks/usePwaInstall";
+
+
+
+
 
 
 
@@ -34,7 +66,15 @@ import { useNetworkStatus } from "./hooks/useNetworkStatus";
 
 
 
+
+
+
+
 import {
+
+
+
+
 
 
 
@@ -42,7 +82,15 @@ import {
 
 
 
+
+
+
+
   deleteAccountAndData,
+
+
+
+
 
 
 
@@ -50,7 +98,15 @@ import {
 
 
 
+
+
+
+
   updateFinanceItem,
+
+
+
+
 
 
 
@@ -58,7 +114,15 @@ import {
 
 
 
+
+
+
+
 import {
+
+
+
+
 
 
 
@@ -66,7 +130,15 @@ import {
 
 
 
+
+
+
+
   calculateFinanceForMonth,
+
+
+
+
 
 
 
@@ -74,7 +146,15 @@ import {
 
 
 
+
+
+
+
   getInstallmentRow,
+
+
+
+
 
 
 
@@ -82,7 +162,15 @@ import {
 
 
 
+
+
+
+
   normalizeForm,
+
+
+
+
 
 
 
@@ -90,7 +178,15 @@ import {
 
 
 
+
+
+
+
 } from "./utils/finance";
+
+
+
+
 
 
 
@@ -98,7 +194,15 @@ import { currentMonth } from "./utils/date";
 
 
 
+
+
+
+
 import { exportMonthCsv } from "./utils/exportCsv";
+
+
+
+
 
 
 
@@ -106,7 +210,15 @@ import { Login, Splash } from "./pages/Login";
 
 
 
+
+
+
+
 import { Dashboard } from "./pages/Dashboard";
+
+
+
+
 
 
 
@@ -114,7 +226,15 @@ import { AllocationsPage, ExpensesPage, IncomePage, InstallmentsPage } from "./p
 
 
 
+
+
+
+
 import { HistoryPage } from "./pages/History";
+
+
+
+
 
 
 
@@ -122,9 +242,23 @@ import { AccountPage } from "./pages/Account";
 
 
 
+
+
+
+
 import { PrivacyPage } from "./pages/Privacy";
 
+
+
 import { DEFAULT_EXPENSE_CATEGORIES } from "./config/categories";
+
+
+
+
+
+
+
+
 
 
 
@@ -136,7 +270,15 @@ function getItemName(type, item) {
 
 
 
+
+
+
+
   if (type === "rendas") return item.source || item.description || "esta renda";
+
+
+
+
 
 
 
@@ -144,7 +286,15 @@ function getItemName(type, item) {
 
 
 
+
+
+
+
   if (type === "gastos") return item.category || item.description || "este gasto";
+
+
+
+
 
 
 
@@ -152,7 +302,19 @@ function getItemName(type, item) {
 
 
 
+
+
+
+
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -164,7 +326,15 @@ function getTypeLabel(type) {
 
 
 
+
+
+
+
   return {
+
+
+
+
 
 
 
@@ -172,7 +342,15 @@ function getTypeLabel(type) {
 
 
 
+
+
+
+
     parcelas: "Parcela",
+
+
+
+
 
 
 
@@ -180,11 +358,23 @@ function getTypeLabel(type) {
 
 
 
+
+
+
+
     aportes: "Aporte",
 
 
 
+
+
+
+
   }[type] || "Registro";
+
+
+
+
 
 
 
@@ -196,7 +386,19 @@ function getTypeLabel(type) {
 
 
 
+
+
+
+
+
+
+
+
 export default function App() {
+
+
+
+
 
 
 
@@ -204,7 +406,15 @@ export default function App() {
 
 
 
+
+
+
+
   const [page, setPage] = useState("dashboard");
+
+
+
+
 
 
 
@@ -212,7 +422,15 @@ export default function App() {
 
 
 
+
+
+
+
   const [modal, setModal] = useState(null);
+
+
+
+
 
 
 
@@ -220,7 +438,15 @@ export default function App() {
 
 
 
+
+
+
+
   const [menuOpen, setMenuOpen] = useState(false);
+
+
+
+
 
 
 
@@ -228,7 +454,15 @@ export default function App() {
 
 
 
+
+
+
+
   const [toasts, setToasts] = useState([]);
+
+
+
+
 
 
 
@@ -236,16 +470,42 @@ export default function App() {
 
 
 
+
+
+
+
   const [confirmBusy, setConfirmBusy] = useState(false);
 
 
 
+
+
+
+
   const [pendingOperations, setPendingOperations] = useState(0);
+
   const [minimumSplashElapsed, setMinimumSplashElapsed] = useState(false);
+
+
 
   const [expensePaymentBusyId, setExpensePaymentBusyId] = useState(null);
 
+
+
   const [incomeReceiptBusyId, setIncomeReceiptBusyId] = useState(null);
+
+  const [incomeReorderBusyId, setIncomeReorderBusyId] = useState(null);
+  const [expenseReorderBusyId, setExpenseReorderBusyId] = useState(null);
+  const [installmentReorderBusyId, setInstallmentReorderBusyId] = useState(null);
+  const [allocationReorderBusyId, setAllocationReorderBusyId] = useState(null);
+
+
+
+
+
+
+
+
 
 
 
@@ -257,7 +517,15 @@ export default function App() {
 
 
 
+
+
+
+
   const pwa = usePwaInstall();
+
+
+
+
 
 
 
@@ -269,15 +537,39 @@ export default function App() {
 
 
 
+
+
+
+
+
+
+
+
   useEffect(() => onAuthStateChanged(auth, setUser), []);
 
+
+
   useEffect(() => {
+
     const timer = window.setTimeout(() => {
+
       setMinimumSplashElapsed(true);
+
     }, 1300);
 
+
+
     return () => window.clearTimeout(timer);
+
   }, []);
+
+
+
+
+
+
+
+
 
 
 
@@ -289,7 +581,15 @@ export default function App() {
 
 
 
+
+
+
+
     const id = `${Date.now()}-${Math.random()}`;
+
+
+
+
 
 
 
@@ -297,7 +597,19 @@ export default function App() {
 
 
 
+
+
+
+
   }, []);
+
+
+
+
+
+
+
+
 
 
 
@@ -309,7 +621,15 @@ export default function App() {
 
 
 
+
+
+
+
     setToasts((current) => current.filter((toast) => toast.id !== id));
+
+
+
+
 
 
 
@@ -321,11 +641,27 @@ export default function App() {
 
 
 
+
+
+
+
+
+
+
+
   useEffect(() => {
 
 
 
+
+
+
+
     if (error) pushToast("Não foi possível carregar os dados do Firebase.", "error");
+
+
+
+
 
 
 
@@ -337,7 +673,19 @@ export default function App() {
 
 
 
+
+
+
+
+
+
+
+
   const monthCollections = useMemo(() => filterMonthCollections(data, month), [data, month]);
+
+
+
+
 
 
 
@@ -345,7 +693,15 @@ export default function App() {
 
 
 
+
+
+
+
   const historyRows = useMemo(() => buildHistoryRows(data), [data]);
+
+
+
+
 
 
 
@@ -357,7 +713,19 @@ export default function App() {
 
 
 
+
+
+
+
+
+
+
+
   function openCreate(type) {
+
+
+
+
 
 
 
@@ -365,11 +733,27 @@ export default function App() {
 
 
 
+
+
+
+
     setModal(type);
 
 
 
+
+
+
+
   }
+
+
+
+
+
+
+
+
 
 
 
@@ -381,7 +765,15 @@ export default function App() {
 
 
 
+
+
+
+
     setEditingItem(item);
+
+
+
+
 
 
 
@@ -389,7 +781,19 @@ export default function App() {
 
 
 
+
+
+
+
   }
+
+
+
+
+
+
+
+
 
 
 
@@ -401,7 +805,15 @@ export default function App() {
 
 
 
+
+
+
+
     setModal(null);
+
+
+
+
 
 
 
@@ -409,7 +821,19 @@ export default function App() {
 
 
 
+
+
+
+
   }
+
+
+
+
+
+
+
+
 
 
 
@@ -421,7 +845,19 @@ export default function App() {
 
 
 
+
+
+
+
     if (!user) return;
+
+
+
+
+
+
+
+
 
 
 
@@ -433,7 +869,15 @@ export default function App() {
 
 
 
+
+
+
+
       const offlineError = new Error("Sem conexão.");
+
+
+
+
 
 
 
@@ -441,7 +885,15 @@ export default function App() {
 
 
 
+
+
+
+
         "Você está sem internet. Seus dados continuam preenchidos; conecte-se para salvar.";
+
+
+
+
 
 
 
@@ -449,7 +901,19 @@ export default function App() {
 
 
 
+
+
+
+
     }
+
+
+
+
+
+
+
+
 
 
 
@@ -461,7 +925,15 @@ export default function App() {
 
 
 
+
+
+
+
     const isEditing = Boolean(itemBeingEdited?.id);
+
+
+
+
 
 
 
@@ -473,7 +945,23 @@ export default function App() {
 
 
 
+
+
+
+
+
+
+
+
     setPendingOperations((count) => count + 1);
+
+
+
+
+
+
+
+
 
 
 
@@ -485,7 +973,15 @@ export default function App() {
 
 
 
+
+
+
+
       if (isEditing) {
+
+
+
+
 
 
 
@@ -493,7 +989,15 @@ export default function App() {
 
 
 
+
+
+
+
       } else {
+
+
+
+
 
 
 
@@ -501,7 +1005,19 @@ export default function App() {
 
 
 
+
+
+
+
       }
+
+
+
+
+
+
+
+
 
 
 
@@ -513,7 +1029,15 @@ export default function App() {
 
 
 
+
+
+
+
       pushToast(
+
+
+
+
 
 
 
@@ -521,7 +1045,15 @@ export default function App() {
 
 
 
+
+
+
+
           ? "Alterações salvas."
+
+
+
+
 
 
 
@@ -529,7 +1061,15 @@ export default function App() {
 
 
 
+
+
+
+
       );
+
+
+
+
 
 
 
@@ -537,7 +1077,15 @@ export default function App() {
 
 
 
+
+
+
+
       console.error("Erro ao salvar registro:", saveError);
+
+
+
+
 
 
 
@@ -549,7 +1097,19 @@ export default function App() {
 
 
 
+
+
+
+
+
+
+
+
       saveError.userMessage =
+
+
+
+
 
 
 
@@ -557,7 +1117,15 @@ export default function App() {
 
 
 
+
+
+
+
       throw saveError;
+
+
+
+
 
 
 
@@ -565,7 +1133,15 @@ export default function App() {
 
 
 
+
+
+
+
       setPendingOperations((count) => Math.max(count - 1, 0));
+
+
+
+
 
 
 
@@ -573,7 +1149,19 @@ export default function App() {
 
 
 
+
+
+
+
   }
+
+
+
+
+
+
+
+
 
 
 
@@ -585,7 +1173,15 @@ export default function App() {
 
 
 
+
+
+
+
     setConfirmState({
+
+
+
+
 
 
 
@@ -593,7 +1189,15 @@ export default function App() {
 
 
 
+
+
+
+
       type,
+
+
+
+
 
 
 
@@ -601,7 +1205,15 @@ export default function App() {
 
 
 
+
+
+
+
       title: `Excluir ${getTypeLabel(type).toLowerCase()}?`,
+
+
+
+
 
 
 
@@ -609,7 +1221,15 @@ export default function App() {
 
 
 
+
+
+
+
       confirmLabel: "Excluir",
+
+
+
+
 
 
 
@@ -617,7 +1237,19 @@ export default function App() {
 
 
 
+
+
+
+
   }
+
+
+
+
+
+
+
+
 
 
 
@@ -629,7 +1261,19 @@ export default function App() {
 
 
 
+
+
+
+
     if (!confirmState || !user) return;
+
+
+
+
+
+
+
+
 
 
 
@@ -641,7 +1285,15 @@ export default function App() {
 
 
 
+
+
+
+
       await performDeleteAccount();
+
+
+
+
 
 
 
@@ -649,7 +1301,19 @@ export default function App() {
 
 
 
+
+
+
+
     }
+
+
+
+
+
+
+
+
 
 
 
@@ -661,7 +1325,15 @@ export default function App() {
 
 
 
+
+
+
+
       pushToast("Conecte-se à internet para excluir este registro.", "info");
+
+
+
+
 
 
 
@@ -669,7 +1341,19 @@ export default function App() {
 
 
 
+
+
+
+
     }
+
+
+
+
+
+
+
+
 
 
 
@@ -681,7 +1365,15 @@ export default function App() {
 
 
 
+
+
+
+
     setPendingOperations((count) => count + 1);
+
+
+
+
 
 
 
@@ -689,7 +1381,15 @@ export default function App() {
 
 
 
+
+
+
+
       await deleteFinanceItem(user.uid, confirmState.type, confirmState.item.id);
+
+
+
+
 
 
 
@@ -697,7 +1397,15 @@ export default function App() {
 
 
 
+
+
+
+
       setConfirmState(null);
+
+
+
+
 
 
 
@@ -705,7 +1413,15 @@ export default function App() {
 
 
 
+
+
+
+
       console.error("Erro ao excluir:", deleteError);
+
+
+
+
 
 
 
@@ -713,7 +1429,15 @@ export default function App() {
 
 
 
+
+
+
+
     } finally {
+
+
+
+
 
 
 
@@ -721,7 +1445,15 @@ export default function App() {
 
 
 
+
+
+
+
       setPendingOperations((count) => Math.max(count - 1, 0));
+
+
+
+
 
 
 
@@ -729,7 +1461,19 @@ export default function App() {
 
 
 
+
+
+
+
   }
+
+
+
+
+
+
+
+
 
 
 
@@ -741,7 +1485,19 @@ export default function App() {
 
 
 
+
+
+
+
     if (!user) return;
+
+
+
+
+
+
+
+
 
 
 
@@ -753,7 +1509,15 @@ export default function App() {
 
 
 
+
+
+
+
       pushToast("Conecte-se à internet para alterar o pagamento da parcela.", "info");
+
+
+
+
 
 
 
@@ -761,7 +1525,19 @@ export default function App() {
 
 
 
+
+
+
+
     }
+
+
+
+
+
+
+
+
 
 
 
@@ -773,7 +1549,15 @@ export default function App() {
 
 
 
+
+
+
+
     const paidMonths = paidMonthsFromLegacy(item);
+
+
+
+
 
 
 
@@ -781,7 +1565,15 @@ export default function App() {
 
 
 
+
+
+
+
       ? paidMonths.filter((key) => key !== month)
+
+
+
+
 
 
 
@@ -793,7 +1585,23 @@ export default function App() {
 
 
 
+
+
+
+
+
+
+
+
     setPendingOperations((count) => count + 1);
+
+
+
+
+
+
+
+
 
 
 
@@ -805,7 +1613,15 @@ export default function App() {
 
 
 
+
+
+
+
       await updateFinanceItem(user.uid, "parcelas", item.id, {
+
+
+
+
 
 
 
@@ -813,7 +1629,15 @@ export default function App() {
 
 
 
+
+
+
+
         paidInstallments: nextPaidMonths.length,
+
+
+
+
 
 
 
@@ -821,7 +1645,15 @@ export default function App() {
 
 
 
+
+
+
+
       pushToast(row.isPaid ? "Parcela marcada como pendente." : "Parcela marcada como paga.");
+
+
+
+
 
 
 
@@ -829,7 +1661,15 @@ export default function App() {
 
 
 
+
+
+
+
       console.error("Erro ao atualizar pagamento:", paymentError);
+
+
+
+
 
 
 
@@ -837,7 +1677,15 @@ export default function App() {
 
 
 
+
+
+
+
     } finally {
+
+
+
+
 
 
 
@@ -845,11 +1693,27 @@ export default function App() {
 
 
 
+
+
+
+
     }
 
 
 
+
+
+
+
   }
+
+
+
+
+
+
+
+
 
 
 
@@ -858,96 +1722,291 @@ export default function App() {
 
 
   async function markIncomeReceived(item) {
+
     if (!user || !item?.id || item.status !== "Pendente") return;
 
+
+
     if (!online) {
+
       pushToast("Conecte-se à internet para marcar a renda como recebida.", "info");
+
       return;
+
     }
+
+
 
     if (incomeReceiptBusyId) return;
 
+
+
     setIncomeReceiptBusyId(item.id);
+
+    setPendingOperations((count) => count + 1);
+
+
+
+    try {
+
+      if (item.recurring) {
+
+        const receivedMonths = Array.isArray(item.receivedMonths)
+
+          ? item.receivedMonths.filter(Boolean)
+
+          : [];
+
+
+
+        const nextReceivedMonths = [
+
+          ...new Set([...receivedMonths, month]),
+
+        ].sort();
+
+
+
+        await updateFinanceItem(user.uid, "rendas", item.id, {
+
+          receivedMonths: nextReceivedMonths,
+
+          status: "Recebida",
+
+        });
+
+
+
+        pushToast("Renda deste mês marcada como recebida.");
+
+      } else {
+
+        await updateFinanceItem(user.uid, "rendas", item.id, {
+
+          status: "Recebida",
+
+        });
+
+
+
+        pushToast("Renda marcada como recebida.");
+
+      }
+
+    } catch (receiptError) {
+
+      console.error("Erro ao marcar renda como recebida:", receiptError);
+
+      pushToast("Não foi possível marcar a renda como recebida.", "error");
+
+    } finally {
+
+      setIncomeReceiptBusyId(null);
+
+      setPendingOperations((count) => Math.max(count - 1, 0));
+
+    }
+
+  }
+
+
+
+
+
+
+
+
+  async function reorderFinanceItem(
+    type,
+    item,
+    sortOrder,
+    busyId,
+    setBusyId,
+    label
+  ) {
+    if (!user || !item?.id) return false;
+
+    const nextSortOrder = Number(sortOrder);
+
+    if (!Number.isFinite(nextSortOrder)) return false;
+
+    if (!online) {
+      pushToast(
+        `Conecte-se à internet para salvar a nova ordem ${label}.`,
+        "info"
+      );
+      return false;
+    }
+
+    if (busyId) return false;
+
+    const currentSortOrder = Number(item.sortOrder);
+
+    if (
+      Number.isFinite(currentSortOrder) &&
+      Math.abs(currentSortOrder - nextSortOrder) < 0.000001
+    ) {
+      return true;
+    }
+
+    setBusyId(item.id);
     setPendingOperations((count) => count + 1);
 
     try {
-      if (item.recurring) {
-        const receivedMonths = Array.isArray(item.receivedMonths)
-          ? item.receivedMonths.filter(Boolean)
-          : [];
+      await updateFinanceItem(user.uid, type, item.id, {
+        sortOrder: nextSortOrder,
+      });
 
-        const nextReceivedMonths = [
-          ...new Set([...receivedMonths, month]),
-        ].sort();
-
-        await updateFinanceItem(user.uid, "rendas", item.id, {
-          receivedMonths: nextReceivedMonths,
-          status: "Recebida",
-        });
-
-        pushToast("Renda deste mês marcada como recebida.");
-      } else {
-        await updateFinanceItem(user.uid, "rendas", item.id, {
-          status: "Recebida",
-        });
-
-        pushToast("Renda marcada como recebida.");
-      }
-    } catch (receiptError) {
-      console.error("Erro ao marcar renda como recebida:", receiptError);
-      pushToast("Não foi possível marcar a renda como recebida.", "error");
+      return true;
+    } catch (reorderError) {
+      console.error(`Erro ao reordenar ${type}:`, reorderError);
+      pushToast(
+        `Não foi possível salvar a nova ordem ${label}.`,
+        "error"
+      );
+      return false;
     } finally {
-      setIncomeReceiptBusyId(null);
+      setBusyId(null);
       setPendingOperations((count) => Math.max(count - 1, 0));
     }
   }
 
+  function reorderIncome(item, sortOrder) {
+    return reorderFinanceItem(
+      "rendas",
+      item,
+      sortOrder,
+      incomeReorderBusyId,
+      setIncomeReorderBusyId,
+      "das rendas"
+    );
+  }
+
+  function reorderExpense(item, sortOrder) {
+    return reorderFinanceItem(
+      "gastos",
+      item,
+      sortOrder,
+      expenseReorderBusyId,
+      setExpenseReorderBusyId,
+      "dos gastos"
+    );
+  }
+
+  function reorderInstallment(item, sortOrder) {
+    return reorderFinanceItem(
+      "parcelas",
+      item,
+      sortOrder,
+      installmentReorderBusyId,
+      setInstallmentReorderBusyId,
+      "das parcelas"
+    );
+  }
+
+  function reorderAllocation(item, sortOrder) {
+    return reorderFinanceItem(
+      "aportes",
+      item,
+      sortOrder,
+      allocationReorderBusyId,
+      setAllocationReorderBusyId,
+      "dos aportes"
+    );
+  }
 
 
   async function markExpensePaid(item) {
+
     if (!user || !item?.id || item.status !== "Pendente") return;
 
+
+
     if (!online) {
+
       pushToast("Conecte-se à internet para marcar o gasto como pago.", "info");
+
       return;
+
     }
+
+
 
     if (expensePaymentBusyId) return;
 
+
+
     setExpensePaymentBusyId(item.id);
+
     setPendingOperations((count) => count + 1);
 
+
+
     try {
+
       if (item.recurring) {
+
         const paidMonths = Array.isArray(item.paidMonths)
+
           ? item.paidMonths.filter(Boolean)
+
           : [];
 
+
+
         const nextPaidMonths = [
+
           ...new Set([...paidMonths, month]),
+
         ].sort();
 
+
+
         await updateFinanceItem(user.uid, "gastos", item.id, {
+
           paidMonths: nextPaidMonths,
+
           status: "Pago",
+
         });
+
+
 
         pushToast("Gasto deste mês marcado como pago.");
+
       } else {
+
         await updateFinanceItem(user.uid, "gastos", item.id, {
+
           status: "Pago",
+
         });
 
+
+
         pushToast("Gasto marcado como pago.");
+
       }
+
     } catch (paymentError) {
+
       console.error("Erro ao marcar gasto como pago:", paymentError);
+
       pushToast("Não foi possível marcar o gasto como pago.", "error");
+
     } finally {
+
       setExpensePaymentBusyId(null);
+
       setPendingOperations((count) => Math.max(count - 1, 0));
+
     }
+
   }
+
+
+
+
 
 
 
@@ -955,7 +2014,15 @@ export default function App() {
 
 
 
+
+
+
+
     const result = exportMonthCsv(data, targetMonth);
+
+
+
+
 
 
 
@@ -963,7 +2030,19 @@ export default function App() {
 
 
 
+
+
+
+
   }
+
+
+
+
+
+
+
+
 
 
 
@@ -975,7 +2054,15 @@ export default function App() {
 
 
 
+
+
+
+
     setConfirmState({
+
+
+
+
 
 
 
@@ -983,7 +2070,15 @@ export default function App() {
 
 
 
+
+
+
+
       title: "Excluir conta e todos os dados?",
+
+
+
+
 
 
 
@@ -991,7 +2086,15 @@ export default function App() {
 
 
 
+
+
+
+
       confirmLabel: "Excluir minha conta",
+
+
+
+
 
 
 
@@ -999,7 +2102,19 @@ export default function App() {
 
 
 
+
+
+
+
   }
+
+
+
+
+
+
+
+
 
 
 
@@ -1011,7 +2126,19 @@ export default function App() {
 
 
 
+
+
+
+
     if (!user) return;
+
+
+
+
+
+
+
+
 
 
 
@@ -1023,7 +2150,15 @@ export default function App() {
 
 
 
+
+
+
+
       pushToast("Conecte-se à internet para excluir sua conta.", "info");
+
+
+
+
 
 
 
@@ -1031,7 +2166,19 @@ export default function App() {
 
 
 
+
+
+
+
     }
+
+
+
+
+
+
+
+
 
 
 
@@ -1043,7 +2190,19 @@ export default function App() {
 
 
 
+
+
+
+
     setPendingOperations((count) => count + 1);
+
+
+
+
+
+
+
+
 
 
 
@@ -1055,7 +2214,15 @@ export default function App() {
 
 
 
+
+
+
+
       await deleteAccountAndData(user);
+
+
+
+
 
 
 
@@ -1063,7 +2230,15 @@ export default function App() {
 
 
 
+
+
+
+
       pushToast("Conta excluída com sucesso.");
+
+
+
+
 
 
 
@@ -1071,7 +2246,15 @@ export default function App() {
 
 
 
+
+
+
+
       setPublicView("login");
+
+
+
+
 
 
 
@@ -1079,7 +2262,15 @@ export default function App() {
 
 
 
+
+
+
+
       console.error("Erro ao excluir conta:", accountError);
+
+
+
+
 
 
 
@@ -1087,7 +2278,15 @@ export default function App() {
 
 
 
+
+
+
+
         pushToast("Exclusão cancelada. Nenhum dado foi apagado.", "info");
+
+
+
+
 
 
 
@@ -1095,7 +2294,15 @@ export default function App() {
 
 
 
+
+
+
+
         pushToast("Não foi possível excluir sua conta. Tente novamente.", "error");
+
+
+
+
 
 
 
@@ -1103,7 +2310,15 @@ export default function App() {
 
 
 
+
+
+
+
     } finally {
+
+
+
+
 
 
 
@@ -1111,7 +2326,15 @@ export default function App() {
 
 
 
+
+
+
+
       setPendingOperations((count) => Math.max(count - 1, 0));
+
+
+
+
 
 
 
@@ -1119,7 +2342,19 @@ export default function App() {
 
 
 
+
+
+
+
   }
+
+
+
+
+
+
+
+
 
 
 
@@ -1131,7 +2366,15 @@ export default function App() {
 
 
 
+
+
+
+
     setMenuOpen(false);
+
+
+
+
 
 
 
@@ -1139,11 +2382,27 @@ export default function App() {
 
 
 
+
+
+
+
     setPage("dashboard");
 
 
 
+
+
+
+
   }
+
+
+
+
+
+
+
+
 
 
 
@@ -1159,7 +2418,19 @@ export default function App() {
 
 
 
+
+
+
+
+
+
+
+
   if (!user) {
+
+
+
+
 
 
 
@@ -1167,7 +2438,15 @@ export default function App() {
 
 
 
+
+
+
+
       return <PrivacyPage standalone onBack={() => setPublicView("login")} />;
+
+
+
+
 
 
 
@@ -1175,7 +2454,15 @@ export default function App() {
 
 
 
+
+
+
+
     return <Login onPrivacy={() => setPublicView("privacy")} />;
+
+
+
+
 
 
 
@@ -1187,11 +2474,27 @@ export default function App() {
 
 
 
+
+
+
+
+
+
+
+
   return (
 
 
 
+
+
+
+
     <div className="app-shell">
+
+
+
+
 
 
 
@@ -1203,7 +2506,19 @@ export default function App() {
 
 
 
+
+
+
+
+
+
+
+
       <main className="app-main">
+
+
+
+
 
 
 
@@ -1211,7 +2526,15 @@ export default function App() {
 
 
 
+
+
+
+
           page={page}
+
+
+
+
 
 
 
@@ -1219,7 +2542,15 @@ export default function App() {
 
 
 
+
+
+
+
           setMonth={setMonth}
+
+
+
+
 
 
 
@@ -1227,7 +2558,15 @@ export default function App() {
 
 
 
+
+
+
+
           menuOpen={menuOpen}
+
+
+
+
 
 
 
@@ -1235,7 +2574,15 @@ export default function App() {
 
 
 
+
+
+
+
           onPage={setPage}
+
+
+
+
 
 
 
@@ -1243,7 +2590,15 @@ export default function App() {
 
 
 
+
+
+
+
           onLogout={logout}
+
+
+
+
 
 
 
@@ -1251,11 +2606,27 @@ export default function App() {
 
 
 
+
+
+
+
           syncing={pendingOperations > 0}
 
 
 
+
+
+
+
         />
+
+
+
+
+
+
+
+
 
 
 
@@ -1271,7 +2642,23 @@ export default function App() {
 
 
 
+
+
+
+
+
+
+
+
         {loading && <div className="content loading-strip">Sincronizando dados...</div>}
+
+
+
+
+
+
+
+
 
 
 
@@ -1283,18 +2670,41 @@ export default function App() {
 
 
 
+
+
+
+
           <Dashboard
+
             month={month}
+
             finance={finance}
+
             historyRows={historyRows}
+
             firstRun={firstRun}
+
             onOpen={openCreate}
+
             onPage={setPage}
+
           />
 
 
 
+
+
+
+
         )}
+
+
+
+
+
+
+
+
 
 
 
@@ -1306,18 +2716,45 @@ export default function App() {
 
 
 
+
+
+
+
           <IncomePage
+
             items={monthCollections.rendas}
+
             onAdd={() => openCreate("rendas")}
+
             onEdit={(item) => openEdit("rendas", item)}
+
             onDelete={(item) => requestDelete("rendas", item)}
+
             onMarkReceived={markIncomeReceived}
+
             receiptBusyId={incomeReceiptBusyId}
+
+            onReorder={reorderIncome}
+
+            reorderBusyId={incomeReorderBusyId}
+
           />
 
 
 
+
+
+
+
         )}
+
+
+
+
+
+
+
+
 
 
 
@@ -1329,7 +2766,15 @@ export default function App() {
 
 
 
+
+
+
+
           <InstallmentsPage
+
+
+
+
 
 
 
@@ -1337,7 +2782,15 @@ export default function App() {
 
 
 
+
+
+
+
             month={month}
+
+
+
+
 
 
 
@@ -1345,7 +2798,15 @@ export default function App() {
 
 
 
+
+
+
+
             onEdit={(item) => openEdit("parcelas", item)}
+
+
+
+
 
 
 
@@ -1353,7 +2814,17 @@ export default function App() {
 
 
 
+
+
+
+
             onTogglePaid={toggleInstallmentPaid}
+            onReorder={reorderInstallment}
+            reorderBusyId={installmentReorderBusyId}
+
+
+
+
 
 
 
@@ -1361,7 +2832,19 @@ export default function App() {
 
 
 
+
+
+
+
         )}
+
+
+
+
+
+
+
+
 
 
 
@@ -1373,18 +2856,43 @@ export default function App() {
 
 
 
+
+
+
+
           <ExpensesPage
+
             items={monthCollections.gastos}
+
             onAdd={() => openCreate("gastos")}
+
             onEdit={(item) => openEdit("gastos", item)}
+
             onDelete={(item) => requestDelete("gastos", item)}
+
             onMarkPaid={markExpensePaid}
+
             paymentBusyId={expensePaymentBusyId}
+            onReorder={reorderExpense}
+            reorderBusyId={expenseReorderBusyId}
+
           />
 
 
 
+
+
+
+
         )}
+
+
+
+
+
+
+
+
 
 
 
@@ -1396,7 +2904,15 @@ export default function App() {
 
 
 
+
+
+
+
           <AllocationsPage
+
+
+
+
 
 
 
@@ -1404,7 +2920,15 @@ export default function App() {
 
 
 
+
+
+
+
             onAdd={() => openCreate("aportes")}
+
+
+
+
 
 
 
@@ -1412,7 +2936,17 @@ export default function App() {
 
 
 
+
+
+
+
             onDelete={(item) => requestDelete("aportes", item)}
+            onReorder={reorderAllocation}
+            reorderBusyId={allocationReorderBusyId}
+
+
+
+
 
 
 
@@ -1420,7 +2954,19 @@ export default function App() {
 
 
 
+
+
+
+
         )}
+
+
+
+
+
+
+
+
 
 
 
@@ -1436,7 +2982,19 @@ export default function App() {
 
 
 
+
+
+
+
+
+
+
+
         {!loading && page === "conta" && (
+
+
+
+
 
 
 
@@ -1444,7 +3002,15 @@ export default function App() {
 
 
 
+
+
+
+
             user={user}
+
+
+
+
 
 
 
@@ -1452,7 +3018,15 @@ export default function App() {
 
 
 
+
+
+
+
             onExport={exportData}
+
+
+
+
 
 
 
@@ -1460,7 +3034,15 @@ export default function App() {
 
 
 
+
+
+
+
             onLogout={logout}
+
+
+
+
 
 
 
@@ -1468,11 +3050,23 @@ export default function App() {
 
 
 
+
+
+
+
             pwa={pwa}
 
 
 
+
+
+
+
           />
+
+
+
+
 
 
 
@@ -1484,11 +3078,31 @@ export default function App() {
 
 
 
+
+
+
+
+
+
+
+
         {!loading && page === "privacidade" && <PrivacyPage onBack={() => setPage("conta")} />}
 
 
 
+
+
+
+
       </main>
+
+
+
+
+
+
+
+
 
 
 
@@ -1504,7 +3118,19 @@ export default function App() {
 
 
 
+
+
+
+
+
+
+
+
       {modal && (
+
+
+
+
 
 
 
@@ -1512,7 +3138,15 @@ export default function App() {
 
 
 
+
+
+
+
           type={modal}
+
+
+
+
 
 
 
@@ -1520,7 +3154,15 @@ export default function App() {
 
 
 
+
+
+
+
           initialValues={editingItem}
+
+
+
+
 
 
 
@@ -1528,7 +3170,15 @@ export default function App() {
 
 
 
+
+
+
+
           onSubmit={(values) => saveEntry(modal, values)}
+
+
+
+
 
 
 
@@ -1536,49 +3186,99 @@ export default function App() {
 
 
 
+
+
+
+
           suggestions={{
+
+
 
             sources: [
 
+
+
               ...new Set(
+
+
 
                 data.rendas
 
+
+
                   .map((item) => item.source)
+
+
 
                   .filter(Boolean)
 
+
+
               ),
+
+
 
             ],
 
+
+
             categories: [
+
+
 
               ...new Set([
 
+
+
                 ...DEFAULT_EXPENSE_CATEGORIES,
+
+
 
                 ...data.gastos
 
+
+
                   .map((item) => item.category)
 
+
+
                   .filter(Boolean),
+
+
 
                 ...data.parcelas
 
+
+
                   .map((item) => item.category)
+
+
 
                   .filter(Boolean),
 
+
+
               ]),
 
+
+
             ].sort((a, b) => a.localeCompare(b, "pt-BR")),
+
+
 
           }}
 
 
 
+
+
+
+
         />
+
+
+
+
 
 
 
@@ -1590,7 +3290,19 @@ export default function App() {
 
 
 
+
+
+
+
+
+
+
+
       <ConfirmDialog
+
+
+
+
 
 
 
@@ -1598,7 +3310,15 @@ export default function App() {
 
 
 
+
+
+
+
         title={confirmState?.title}
+
+
+
+
 
 
 
@@ -1606,7 +3326,15 @@ export default function App() {
 
 
 
+
+
+
+
         confirmLabel={confirmState?.confirmLabel}
+
+
+
+
 
 
 
@@ -1614,7 +3342,15 @@ export default function App() {
 
 
 
+
+
+
+
         onCancel={() => !confirmBusy && setConfirmState(null)}
+
+
+
+
 
 
 
@@ -1622,7 +3358,15 @@ export default function App() {
 
 
 
+
+
+
+
       />
+
+
+
+
 
 
 
@@ -1630,11 +3374,23 @@ export default function App() {
 
 
 
+
+
+
+
     </div>
 
 
 
+
+
+
+
   );
+
+
+
+
 
 
 

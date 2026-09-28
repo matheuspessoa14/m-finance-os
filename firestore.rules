@@ -34,13 +34,22 @@ service cloud.firestore {
           || (data.paidMonths is list && data.paidMonths.size() <= 600);
     }
 
+    function validSortOrder(data) {
+      return !('sortOrder' in data)
+          || (
+            data.sortOrder is number
+            && data.sortOrder > -999999999999999
+            && data.sortOrder < 999999999999999
+          );
+    }
+
     match /users/{userId}/incomes/{docId} {
       allow read, delete: if signedInAs(userId);
 
       allow create, update: if signedInAs(userId)
         && request.resource.data.keys().hasOnly([
           'date', 'description', 'source', 'type', 'amount', 'status',
-          'recurring', 'recurrenceEnd', 'receivedMonths',
+          'recurring', 'recurrenceEnd', 'receivedMonths', 'sortOrder',
           'createdAt', 'updatedAt'
         ])
         && shortText(request.resource.data.date, 10)
@@ -52,6 +61,7 @@ service cloud.firestore {
         && request.resource.data.status in ['Recebida', 'Pendente']
         && validRecurringBase(request.resource.data)
         && validReceivedMonths(request.resource.data)
+        && validSortOrder(request.resource.data)
         && validAuditFields(request.resource.data);
     }
 
@@ -61,7 +71,7 @@ service cloud.firestore {
       allow create, update: if signedInAs(userId)
         && request.resource.data.keys().hasOnly([
           'date', 'description', 'category', 'amount', 'status',
-          'recurring', 'recurrenceEnd', 'paidMonths',
+          'recurring', 'recurrenceEnd', 'paidMonths', 'sortOrder',
           'createdAt', 'updatedAt'
         ])
         && shortText(request.resource.data.date, 10)
@@ -71,6 +81,7 @@ service cloud.firestore {
         && request.resource.data.status in ['Pago', 'Pendente']
         && validRecurringBase(request.resource.data)
         && validPaidMonths(request.resource.data)
+        && validSortOrder(request.resource.data)
         && validAuditFields(request.resource.data);
     }
 
@@ -79,7 +90,7 @@ service cloud.firestore {
 
       allow create, update: if signedInAs(userId)
         && request.resource.data.keys().hasOnly([
-          'date', 'destination', 'type', 'amount', 'goal',
+          'date', 'destination', 'type', 'amount', 'goal', 'sortOrder',
           'createdAt', 'updatedAt'
         ])
         && shortText(request.resource.data.date, 10)
@@ -87,6 +98,7 @@ service cloud.firestore {
         && request.resource.data.type in ['Reserva', 'Investimento']
         && validAmount(request.resource.data.amount)
         && shortText(request.resource.data.goal, 180)
+        && validSortOrder(request.resource.data)
         && validAuditFields(request.resource.data);
     }
 
@@ -96,7 +108,7 @@ service cloud.firestore {
       allow create, update: if signedInAs(userId)
         && request.resource.data.keys().hasOnly([
           'name', 'category', 'purchaseDate', 'firstDue', 'total',
-          'installments', 'paidMonths', 'paidInstallments',
+          'installments', 'paidMonths', 'paidInstallments', 'sortOrder',
           'createdAt', 'updatedAt'
         ])
         && shortText(request.resource.data.name, 120)
@@ -113,6 +125,7 @@ service cloud.firestore {
         && request.resource.data.paidInstallments is int
         && request.resource.data.paidInstallments >= 0
         && request.resource.data.paidInstallments <= request.resource.data.installments
+        && validSortOrder(request.resource.data)
         && validAuditFields(request.resource.data);
     }
   }
