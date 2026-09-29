@@ -6,22 +6,15 @@
 
    ========================================================= */
 
-
-
 .nav-divider {
-
   height: 1px;
 
   margin: 8px 10px;
 
   background: rgba(255, 255, 255, 0.08);
-
 }
 
-
-
 .loading-strip {
-
   padding-top: 18px !important;
 
   padding-bottom: 0 !important;
@@ -31,15 +24,11 @@
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
   font-size: 10px;
-
 }
-
-
 
 /* Toasts */
 
 .toast-viewport {
-
   position: fixed;
 
   right: 18px;
@@ -55,13 +44,9 @@
   gap: 9px;
 
   pointer-events: none;
-
 }
 
-
-
 .toast {
-
   min-height: 54px;
 
   padding: 11px 12px;
@@ -91,19 +76,17 @@
   pointer-events: auto;
 
   backdrop-filter: blur(18px);
-
 }
 
+.toast.error {
+  border-color: rgba(201, 91, 91, 0.28);
+}
 
-
-.toast.error { border-color: rgba(201, 91, 91, 0.28); }
-
-.toast.info { border-color: rgba(73, 150, 177, 0.25); }
-
-
+.toast.info {
+  border-color: rgba(73, 150, 177, 0.25);
+}
 
 .toast-icon {
-
   width: 30px;
 
   height: 30px;
@@ -117,33 +100,21 @@
   background: var(--green-soft);
 
   color: var(--green-dark);
-
 }
 
-
-
 .toast.error .toast-icon {
-
   background: #fff0f0;
 
   color: var(--danger);
-
 }
 
-
-
 .toast.info .toast-icon {
-
   background: #eef7fa;
 
   color: #397d94;
-
 }
 
-
-
-.toast button {
-
+.toast-close {
   width: 28px;
 
   height: 28px;
@@ -159,19 +130,15 @@
   background: transparent;
 
   color: #889690;
-
 }
-
-
 
 /* Confirmação segura */
 
-.confirm-backdrop { z-index: 2100; }
-
-
+.confirm-backdrop {
+  z-index: 2100;
+}
 
 .confirm-card {
-
   width: min(430px, 100%);
 
   padding: 26px;
@@ -183,13 +150,9 @@
   background: #fff;
 
   box-shadow: 0 30px 90px rgba(17, 48, 39, 0.22);
-
 }
 
-
-
 .confirm-symbol {
-
   width: 46px;
 
   height: 46px;
@@ -205,23 +168,15 @@
   color: var(--green-dark);
 
   background: var(--green-soft);
-
 }
 
-
-
 .confirm-symbol.danger {
-
   color: var(--danger);
 
   background: #fff0f0;
-
 }
 
-
-
 .confirm-card h2 {
-
   margin: 10px 0 8px;
 
   color: var(--text);
@@ -229,13 +184,9 @@
   font-size: 24px;
 
   letter-spacing: -0.035em;
-
 }
 
-
-
 .confirm-card p {
-
   margin: 0;
 
   color: var(--muted);
@@ -243,13 +194,9 @@
   line-height: 1.6;
 
   font-size: 13px;
-
 }
 
-
-
 .confirm-actions {
-
   margin-top: 25px;
 
   display: flex;
@@ -257,13 +204,9 @@
   justify-content: flex-end;
 
   gap: 9px;
-
 }
 
-
-
 .danger-button {
-
   min-height: 44px;
 
   padding: 0 17px;
@@ -287,21 +230,20 @@
   font-weight: 850;
 
   font-size: 12px;
-
 }
 
+.danger-button:hover {
+  background: #a53f3f;
+}
 
-
-.danger-button:hover { background: #a53f3f; }
-
-.danger-button:disabled { opacity: 0.6; cursor: wait; }
-
-
+.danger-button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
 
 /* Onboarding */
 
 .first-run-card {
-
   margin-bottom: 20px;
 
   padding: 24px;
@@ -316,26 +258,22 @@
 
   border-radius: 22px;
 
-  background: linear-gradient(135deg, rgba(234,245,240,.95), rgba(255,255,255,.97));
-
+  background: linear-gradient(
+    135deg,
+    rgba(234, 245, 240, 0.95),
+    rgba(255, 255, 255, 0.97)
+  );
 }
 
-
-
 .first-run-card h2 {
-
   margin: 10px 0 8px;
 
   font-size: 22px;
 
   letter-spacing: -0.035em;
-
 }
 
-
-
 .first-run-card p {
-
   max-width: 620px;
 
   margin: 0;
@@ -345,13 +283,9 @@
   line-height: 1.6;
 
   font-size: 12px;
-
 }
 
-
-
 .first-run-actions {
-
   min-width: 220px;
 
   display: grid;
@@ -359,13 +293,9 @@
   align-content: center;
 
   gap: 8px;
-
 }
 
-
-
 .empty-state-rich strong {
-
   display: block;
 
   margin-top: 10px;
@@ -373,25 +303,17 @@
   color: var(--text);
 
   font-size: 13px;
-
 }
 
-
-
 .empty-state-rich p {
-
   max-width: 430px;
 
   margin-left: auto;
 
   margin-right: auto;
-
 }
 
-
-
 .form-note {
-
   margin: 4px 0 16px;
 
   padding: 11px 13px;
@@ -407,39 +329,25 @@
   font-size: 10px;
 
   line-height: 1.5;
-
 }
 
-
-
 .small-button.paid {
-
   color: var(--green-dark);
 
   background: var(--green-soft);
 
   border-color: #cfe5db;
-
 }
 
-
-
 .record.is-paid,
-
 .installment-mini.is-paid {
-
   background: #fbfdfc;
 
   border-color: #d7e8e1;
-
 }
 
-
-
 .text-action,
-
 .privacy-link {
-
   border: 0;
 
   padding: 0;
@@ -451,19 +359,18 @@
   font-size: 11px;
 
   font-weight: 800;
-
 }
 
+.text-action {
+  margin-top: 16px;
+}
 
-
-.text-action { margin-top: 16px; }
-
-.privacy-link { margin-top: 18px; text-align: center; }
-
-
+.privacy-link {
+  margin-top: 18px;
+  text-align: center;
+}
 
 .login-error {
-
   margin-top: 12px;
 
   padding: 11px 12px;
@@ -479,71 +386,47 @@
   font-size: 11px;
 
   line-height: 1.45;
-
 }
-
-
 
 /* Menu mobile ampliado */
 
 .mobile-menu-profile {
-
   padding: 2px 2px 8px;
 
   border-bottom: 1px solid var(--border);
-
 }
 
-
-
 .mobile-account-menu button {
-
   justify-content: flex-start !important;
 
   padding: 0 12px;
-
 }
-
-
 
 .mobile-account-menu .mobile-menu-logout {
-
   color: #9f4a4a;
-
 }
-
-
 
 /* Histórico */
 
 .history-list {
-
   display: grid;
 
   gap: 13px;
-
 }
 
-
-
 .history-card {
-
   padding: 20px;
 
   border: 1px solid var(--border);
 
   border-radius: 20px;
 
-  background: rgba(255,255,255,.96);
+  background: rgba(255, 255, 255, 0.96);
 
   box-shadow: var(--shadow);
-
 }
 
-
-
 .history-card-title {
-
   display: grid;
 
   grid-template-columns: 40px minmax(0, 1fr) 40px;
@@ -551,13 +434,9 @@
   align-items: center;
 
   gap: 11px;
-
 }
 
-
-
 .history-icon {
-
   width: 40px;
 
   height: 40px;
@@ -571,23 +450,24 @@
   color: var(--green-dark);
 
   background: var(--green-soft);
-
 }
 
-
-
 .history-card-title strong,
+.history-card-title span {
+  display: block;
+}
 
-.history-card-title span { display: block; }
+.history-card-title > div > strong {
+  font-size: 14px;
+}
 
-.history-card-title > div > strong { font-size: 14px; }
-
-.history-card-title > div > span { margin-top: 3px; color: var(--muted); font-size: 10px; }
-
-
+.history-card-title > div > span {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 10px;
+}
 
 .history-metrics {
-
   margin-top: 18px;
 
   display: grid;
@@ -595,13 +475,9 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
 
   gap: 10px;
-
 }
 
-
-
 .history-metrics > div {
-
   padding: 13px;
 
   border: 1px solid #e2ece8;
@@ -609,41 +485,44 @@
   border-radius: 14px;
 
   background: #fbfdfc;
-
 }
 
-
-
 .history-metrics span,
+.history-metrics strong {
+  display: block;
+}
 
-.history-metrics strong { display: block; }
+.history-metrics span {
+  margin-bottom: 7px;
+  color: var(--muted);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
 
-.history-metrics span { margin-bottom: 7px; color: var(--muted); font-size: 9px; text-transform: uppercase; letter-spacing: .04em; }
+.history-metrics strong {
+  font-size: 13px;
+}
 
-.history-metrics strong { font-size: 13px; }
+.positive {
+  color: var(--green-dark);
+}
 
-.positive { color: var(--green-dark); }
-
-.negative-text { color: var(--danger); }
-
-
+.negative-text {
+  color: var(--danger);
+}
 
 /* Conta/configurações */
 
 .account-grid {
-
   display: grid;
 
   grid-template-columns: repeat(2, minmax(0, 1fr));
 
   gap: 16px;
-
 }
 
-
-
 .settings-card {
-
   min-width: 0;
 
   padding: 22px;
@@ -652,88 +531,128 @@
 
   border-radius: 21px;
 
-  background: rgba(255,255,255,.96);
+  background: rgba(255, 255, 255, 0.96);
 
   box-shadow: var(--shadow);
-
 }
 
-
-
 .settings-card-header {
-
   display: flex;
 
   align-items: flex-start;
 
   gap: 11px;
-
 }
 
-
-
-.settings-card-header > svg { color: var(--green-dark); margin-top: 2px; }
+.settings-card-header > svg {
+  color: var(--green-dark);
+  margin-top: 2px;
+}
 
 .settings-card-header strong,
+.settings-card-header span {
+  display: block;
+}
 
-.settings-card-header span { display: block; }
+.settings-card-header strong {
+  font-size: 14px;
+}
 
-.settings-card-header strong { font-size: 14px; }
+.settings-card-header span {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 10px;
+}
 
-.settings-card-header span { margin-top: 3px; color: var(--muted); font-size: 10px; }
+.settings-card > p {
+  margin: 18px 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.65;
+}
 
-.settings-card > p { margin: 18px 0; color: var(--muted); font-size: 11px; line-height: 1.65; }
+.profile-settings-card {
+  grid-column: 1 / -1;
+}
 
-
-
-.profile-settings-card { grid-column: 1 / -1; }
-
-.profile-summary { margin-top: 20px; display: flex; align-items: center; gap: 15px; }
+.profile-summary {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
 
 .profile-summary img,
+.avatar-fallback.large {
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+}
 
-.avatar-fallback.large { width: 58px; height: 58px; border-radius: 18px; }
+.profile-summary img {
+  object-fit: cover;
+}
 
-.profile-summary img { object-fit: cover; }
-
-.avatar-fallback.large { display: grid; place-items: center; color: white; background: var(--green); font-size: 20px; font-weight: 900; }
+.avatar-fallback.large {
+  display: grid;
+  place-items: center;
+  color: white;
+  background: var(--green);
+  font-size: 20px;
+  font-weight: 900;
+}
 
 .profile-summary strong,
-
 .profile-summary span,
+.profile-summary small {
+  display: block;
+}
 
-.profile-summary small { display: block; }
+.profile-summary > div > strong {
+  font-size: 15px;
+}
 
-.profile-summary > div > strong { font-size: 15px; }
+.profile-summary span {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 11px;
+}
 
-.profile-summary span { margin-top: 4px; color: var(--muted); font-size: 11px; }
+.profile-summary small {
+  margin-top: 7px;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #9aa7a2;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8px;
+}
 
-.profile-summary small { margin-top: 7px; max-width: 100%; overflow: hidden; text-overflow: ellipsis; color: #9aa7a2; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 8px; }
+.settings-success {
+  color: var(--green-dark) !important;
+  font-weight: 750;
+}
 
-.settings-success { color: var(--green-dark) !important; font-weight: 750; }
+.danger-zone {
+  border-color: #f0d2d2;
+  background: #fffafa;
+}
 
-.danger-zone { border-color: #f0d2d2; background: #fffafa; }
-
-.danger-zone .settings-card-header > svg { color: var(--danger); }
-
-
+.danger-zone .settings-card-header > svg {
+  color: var(--danger);
+}
 
 /* Privacidade */
 
 .privacy-standalone {
-
   min-height: 100vh;
 
   padding: 30px 18px;
 
   background: #f7faf9;
-
 }
 
-
-
 .privacy-page {
-
   width: min(980px, 100%);
 
   margin: 0 auto;
@@ -747,13 +666,9 @@
   background: #fff;
 
   box-shadow: var(--shadow);
-
 }
 
-
-
 .privacy-back {
-
   margin-bottom: 28px;
 
   min-height: 40px;
@@ -777,13 +692,9 @@
   font-size: 11px;
 
   font-weight: 800;
-
 }
 
-
-
 .privacy-page h1 {
-
   max-width: 720px;
 
   margin: 14px 0 12px;
@@ -792,26 +703,18 @@
 
   line-height: 1.02;
 
-  letter-spacing: -.055em;
-
+  letter-spacing: -0.055em;
 }
 
-
-
 .privacy-lead {
-
   max-width: 760px;
 
   color: var(--muted);
 
   line-height: 1.7;
-
 }
 
-
-
 .privacy-grid {
-
   margin-top: 32px;
 
   display: grid;
@@ -819,13 +722,9 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
 
   gap: 13px;
-
 }
 
-
-
 .privacy-grid article {
-
   padding: 20px;
 
   border: 1px solid var(--border);
@@ -833,21 +732,25 @@
   border-radius: 18px;
 
   background: #fbfdfc;
-
 }
 
+.privacy-grid svg {
+  color: var(--green-dark);
+}
 
+.privacy-grid h2 {
+  margin: 13px 0 8px;
+  font-size: 15px;
+}
 
-.privacy-grid svg { color: var(--green-dark); }
-
-.privacy-grid h2 { margin: 13px 0 8px; font-size: 15px; }
-
-.privacy-grid p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.65; }
-
-
+.privacy-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.65;
+}
 
 .privacy-note {
-
   margin-top: 18px;
 
   padding: 18px;
@@ -857,29 +760,25 @@
   border-radius: 16px;
 
   background: #fffaf0;
-
 }
 
+.privacy-note strong {
+  font-size: 12px;
+}
 
-
-.privacy-note strong { font-size: 12px; }
-
-.privacy-note p { margin: 5px 0 0; color: #766d5d; font-size: 10px; line-height: 1.6; }
-
-
+.privacy-note p {
+  margin: 5px 0 0;
+  color: #766d5d;
+  font-size: 10px;
+  line-height: 1.6;
+}
 
 @media (max-width: 760px) {
-
   .mobile-account-menu {
-
     top: 116px;
-
   }
 
-
-
   .toast-viewport {
-
     right: 10px;
 
     left: 10px;
@@ -887,106 +786,77 @@
     bottom: calc(88px + env(safe-area-inset-bottom));
 
     width: auto;
-
   }
 
-
-
   .confirm-backdrop {
-
     padding: 12px;
 
     align-items: center;
-
   }
 
-
-
   .confirm-card {
-
     width: 100%;
 
     padding: 22px;
 
     border-radius: 21px;
-
   }
 
-
-
   .confirm-actions {
-
     display: grid;
 
     grid-template-columns: 1fr 1fr;
-
   }
 
-
-
-  .confirm-actions button { width: 100%; }
-
-
+  .confirm-actions button {
+    width: 100%;
+  }
 
   .first-run-card {
-
     padding: 19px;
 
     flex-direction: column;
-
   }
 
+  .first-run-actions {
+    min-width: 0;
+  }
 
-
-  .first-run-actions { min-width: 0; }
-
-  .first-run-actions button { width: 100%; }
-
-
+  .first-run-actions button {
+    width: 100%;
+  }
 
   .history-metrics {
-
     grid-template-columns: 1fr 1fr;
-
   }
-
-
 
   .account-grid,
-
   .privacy-grid {
-
     grid-template-columns: 1fr;
-
   }
 
+  .profile-settings-card {
+    grid-column: auto;
+  }
 
-
-  .profile-settings-card { grid-column: auto; }
-
-  .settings-card { padding: 18px; }
-
-
+  .settings-card {
+    padding: 18px;
+  }
 
   .privacy-page {
-
     padding: 22px 17px;
 
     border-radius: 20px;
-
   }
 
+  .privacy-standalone {
+    padding: 12px;
+  }
 
-
-  .privacy-standalone { padding: 12px; }
-
-  .privacy-page h1 { font-size: 36px; }
-
+  .privacy-page h1 {
+    font-size: 36px;
+  }
 }
-
-
-
-
 
 /* =========================================================
 
@@ -996,43 +866,25 @@
 
    ========================================================= */
 
-
-
 .session-card {
-
   display: flex;
 
   flex-direction: column;
-
 }
 
-
-
 .session-card .secondary-button {
-
   margin-top: 20px;
 
   align-self: flex-start;
-
 }
 
-
-
 @media (max-width: 760px) {
-
   .session-card .secondary-button {
-
     width: 100%;
 
     justify-content: center;
-
   }
-
 }
-
-
-
-
 
 /* =========================================================
 
@@ -1042,12 +894,9 @@
 
    ========================================================= */
 
-
-
 /* Status de sincronização no topo. */
 
 .sync-status {
-
   min-height: 34px;
 
   padding: 0 10px;
@@ -1073,69 +922,43 @@
   font-weight: 800;
 
   white-space: nowrap;
-
 }
-
-
 
 .sync-status.online svg {
-
   color: var(--green);
-
 }
 
-
-
 .sync-status.syncing {
-
   color: #876c31;
 
   border-color: #eadfbe;
 
   background: #fffbf1;
-
 }
-
-
 
 .sync-status.syncing svg {
-
   color: #b3872f;
-
 }
 
-
-
 .sync-status.offline {
-
   color: #a64848;
 
   border-color: #f0d1d1;
 
   background: #fff7f7;
-
 }
-
-
 
 .sync-spin {
-
   animation: sync-spin 900ms linear infinite;
-
 }
-
-
 
 @keyframes sync-spin {
-
-  to { transform: rotate(360deg); }
-
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-
-
 .offline-banner {
-
   width: min(1400px, calc(100% - 68px));
 
   margin: 16px auto 0;
@@ -1159,45 +982,27 @@
   font-size: 10.5px;
 
   line-height: 1.45;
-
 }
-
-
 
 .offline-banner svg {
-
   flex: 0 0 auto;
-
 }
-
-
 
 /* Validação amigável dos formulários. */
 
 .field.has-error > span {
-
   color: #a94d4d;
-
 }
 
-
-
 .field.has-error input,
-
 .field.has-error select,
-
 .field.has-error .money-input {
-
   border-color: #df8e8e !important;
 
   box-shadow: 0 0 0 3px rgba(201, 91, 91, 0.08);
-
 }
 
-
-
 .field-error {
-
   display: block;
 
   margin-top: 6px;
@@ -1207,15 +1012,10 @@
   font-size: 9.5px;
 
   line-height: 1.4;
-
 }
 
-
-
 .form-submit-error,
-
 .form-offline-note {
-
   margin: 0 0 18px;
 
   padding: 11px 12px;
@@ -1225,25 +1025,17 @@
   font-size: 10px;
 
   line-height: 1.5;
-
 }
 
-
-
 .form-submit-error {
-
   border: 1px solid #edcaca;
 
   color: #a34545;
 
   background: #fff7f7;
-
 }
 
-
-
 .form-offline-note {
-
   border: 1px solid #eadfbe;
 
   display: flex;
@@ -1255,25 +1047,17 @@
   color: #80672f;
 
   background: #fffbf1;
-
 }
 
-
-
 .form-offline-note svg {
-
   flex: 0 0 auto;
 
   margin-top: 1px;
-
 }
-
-
 
 /* Tela de recuperação caso algum componente React falhe. */
 
 .fatal-error-screen {
-
   min-height: 100vh;
 
   padding: 24px;
@@ -1283,17 +1067,11 @@
   place-items: center;
 
   background:
-
-    radial-gradient(circle at 20% 0%, rgba(47, 143, 107, 0.10), transparent 32%),
-
+    radial-gradient(circle at 20% 0%, rgba(47, 143, 107, 0.1), transparent 32%),
     #f7faf9;
-
 }
 
-
-
 .fatal-error-card {
-
   width: min(520px, 100%);
 
   padding: 34px;
@@ -1305,13 +1083,9 @@
   background: white;
 
   box-shadow: var(--shadow);
-
 }
 
-
-
 .fatal-error-brand {
-
   margin-bottom: 34px;
 
   display: flex;
@@ -1319,25 +1093,17 @@
   align-items: center;
 
   gap: 12px;
-
 }
 
-
-
 .fatal-error-brand span {
-
   color: #24413a;
 
   font-size: 15px;
 
   font-weight: 900;
-
 }
 
-
-
 .fatal-error-icon {
-
   width: 48px;
 
   height: 48px;
@@ -1353,13 +1119,9 @@
   color: #a64b4b;
 
   background: #fff0f0;
-
 }
 
-
-
 .fatal-error-card h1 {
-
   margin: 12px 0 10px;
 
   color: #24332e;
@@ -1369,31 +1131,22 @@
   line-height: 1.02;
 
   letter-spacing: -0.045em;
-
 }
 
-
-
 .fatal-error-card p {
-
   margin: 0 0 24px;
 
   color: var(--muted);
 
   line-height: 1.65;
-
 }
-
-
 
 /* No desktop mostramos sempre o estado; no celular, "Sincronizado"
 
    some para economizar espaço e reaparece ao sincronizar/offline. */
 
 @media (max-width: 760px) {
-
   .sync-status {
-
     grid-column: 1;
 
     grid-row: 1;
@@ -1407,33 +1160,21 @@
     padding: 0 8px;
 
     font-size: 7px;
-
   }
-
-
 
   .sync-status.online {
-
     display: none;
-
   }
 
-
-
   .sync-status span {
-
     max-width: 86px;
 
     overflow: hidden;
 
     text-overflow: ellipsis;
-
   }
 
-
-
   .offline-banner {
-
     width: calc(100% - 20px);
 
     margin-top: 10px;
@@ -1441,41 +1182,25 @@
     padding: 10px 11px;
 
     font-size: 9px;
-
   }
-
-
 
   .fatal-error-screen {
-
     padding: 14px;
-
   }
 
-
-
   .fatal-error-card {
-
     padding: 25px 20px;
 
     border-radius: 22px;
-
   }
-
 }
-
-
-
-
 
 /* Mobile: o status de rede vira um chip flutuante para não disputar
 
    espaço com o título e o seletor de mês. */
 
 @media (max-width: 760px) {
-
   .sync-status {
-
     position: fixed;
 
     right: 12px;
@@ -1489,22 +1214,12 @@
     min-height: 30px;
 
     box-shadow: 0 8px 24px rgba(25, 55, 46, 0.12);
-
   }
-
-
 
   .sync-status.online {
-
     display: none;
-
   }
-
 }
-
-
-
-
 
 /* =========================================================
 
@@ -1515,50 +1230,26 @@
    ========================================================= */
 
 @media (max-width: 760px) {
-
   .confirm-backdrop {
-
     height: 100dvh;
 
     min-height: 100dvh;
 
-    padding:
-
-      max(12px, env(safe-area-inset-top))
-
-      12px
-
+    padding: max(12px, env(safe-area-inset-top)) 12px
       max(12px, env(safe-area-inset-bottom));
-
   }
 
-
-
   .confirm-card {
-
     max-height: calc(
-
-      100dvh
-
-      - max(24px, env(safe-area-inset-top))
-
-      - max(24px, env(safe-area-inset-bottom))
-
+      100dvh - max(24px, env(safe-area-inset-top)) -
+        max(24px, env(safe-area-inset-bottom))
     );
 
     overflow-y: auto;
 
     -webkit-overflow-scrolling: touch;
-
   }
-
 }
-
-
-
-
-
-
 
 /* =========================================================
 
@@ -1568,22 +1259,14 @@
 
    ========================================================= */
 
-
-
 .first-run-actions {
-
   min-width: 250px;
 
   gap: 10px;
-
 }
 
-
-
 .first-run-actions .primary-button,
-
 .first-run-actions .secondary-button {
-
   width: 100%;
 
   min-height: 48px;
@@ -1599,65 +1282,39 @@
   font-weight: 850;
 
   box-shadow: 0 10px 24px rgba(24, 48, 40, 0.08);
-
 }
 
-
-
 .first-run-actions .secondary-button {
-
   color: var(--green-dark);
 
   border-color: #cfe3db;
 
   background: linear-gradient(180deg, #ffffff, #f6fbf8);
-
 }
 
-
-
 .first-run-actions .secondary-button:hover {
-
   transform: translateY(-1px);
 
   border-color: #b9d8cb;
 
   background: #f0f8f4;
-
 }
-
-
 
 .first-run-actions .primary-button {
-
   background: linear-gradient(135deg, #2f8f6b, #23795a);
-
 }
-
-
 
 .first-run-actions .secondary-button:nth-child(2) {
-
   background: linear-gradient(135deg, #eef7f3, #f7fcfa);
-
 }
-
-
 
 .first-run-actions .secondary-button:nth-child(3) {
-
   background: linear-gradient(135deg, #f5fbf8, #fcfffe);
-
 }
 
-
-
 .first-run-actions .secondary-button:nth-child(2)::before,
-
 .first-run-actions .secondary-button:nth-child(3)::before,
-
 .first-run-actions .primary-button::before {
-
   width: 28px;
 
   height: 28px;
@@ -1673,119 +1330,75 @@
   font-size: 11px;
 
   font-weight: 900;
-
 }
 
-
-
 .first-run-actions .primary-button::before {
-
   content: "1";
 
   color: #1e6c52;
 
   background: rgba(255, 255, 255, 0.92);
-
 }
 
-
-
 .first-run-actions .secondary-button:nth-child(2)::before {
-
   content: "2";
 
   color: #1e6c52;
 
   background: #dff1e9;
-
 }
 
-
-
 .first-run-actions .secondary-button:nth-child(3)::before {
-
   content: "3";
 
   color: #1e6c52;
 
   background: #e6f4ee;
-
 }
 
-
-
 @media (max-width: 900px) {
-
   .first-run-card {
-
     padding: 20px;
 
     gap: 18px;
-
   }
 
-
-
   .first-run-actions {
-
     min-width: 0;
 
     width: 100%;
 
     grid-template-columns: 1fr;
-
   }
-
 }
 
-
-
 @media (max-width: 760px) {
-
   .first-run-card {
-
     padding: 18px 16px;
 
     border-radius: 20px;
-
   }
 
-
-
   .first-run-card h2 {
-
     font-size: 20px;
 
     line-height: 1.15;
-
   }
 
-
-
   .first-run-card p {
-
     font-size: 11px;
 
     line-height: 1.55;
-
   }
 
-
-
   .first-run-actions {
-
     width: 100%;
 
     gap: 8px;
-
   }
 
-
-
   .first-run-actions .primary-button,
-
   .first-run-actions .secondary-button {
-
     min-height: 46px;
 
     padding-inline: 14px;
@@ -1793,9 +1406,7 @@
     border-radius: 14px;
 
     font-size: 12px;
-
   }
-
 }
 
 /* =========================================================
@@ -1851,22 +1462,31 @@
 .expense-summary-card--paid {
   color: var(--expense-paid);
   border-color: var(--expense-paid-border);
-  background:
-    linear-gradient(145deg, rgba(237, 248, 243, 0.96), rgba(255, 255, 255, 0.98));
+  background: linear-gradient(
+    145deg,
+    rgba(237, 248, 243, 0.96),
+    rgba(255, 255, 255, 0.98)
+  );
 }
 
 .expense-summary-card--pending.has-pending {
   color: var(--expense-pending);
   border-color: var(--expense-pending-border);
-  background:
-    linear-gradient(145deg, rgba(255, 248, 232, 0.98), rgba(255, 253, 247, 0.98));
+  background: linear-gradient(
+    145deg,
+    rgba(255, 248, 232, 0.98),
+    rgba(255, 253, 247, 0.98)
+  );
 }
 
 .expense-summary-card--pending.is-clear {
   color: #58746b;
   border-color: #d8e6e1;
-  background:
-    linear-gradient(145deg, rgba(247, 251, 249, 0.98), rgba(255, 255, 255, 0.98));
+  background: linear-gradient(
+    145deg,
+    rgba(247, 251, 249, 0.98),
+    rgba(255, 255, 255, 0.98)
+  );
 }
 
 .expense-summary-icon {
@@ -1972,8 +1592,11 @@
 
 .record--pending {
   border-color: #ead8aa !important;
-  background:
-    linear-gradient(90deg, rgba(255, 248, 232, 0.92), rgba(255, 255, 255, 0.98) 18%);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 248, 232, 0.92),
+    rgba(255, 255, 255, 0.98) 18%
+  );
   box-shadow:
     inset 3px 0 0 var(--expense-pending-strong),
     0 8px 22px rgba(110, 78, 19, 0.035);
@@ -1981,8 +1604,11 @@
 
 .record--paid {
   border-color: #d8e7e1 !important;
-  background:
-    linear-gradient(90deg, rgba(243, 250, 247, 0.86), rgba(255, 255, 255, 0.98) 18%);
+  background: linear-gradient(
+    90deg,
+    rgba(243, 250, 247, 0.86),
+    rgba(255, 255, 255, 0.98) 18%
+  );
 }
 
 .record-meta {
@@ -2123,8 +1749,6 @@
   }
 }
 
-
-
 /* =========================================================
    M FINANCE.OS — QUICK EXPENSE PAYMENT
    Ação direta para resolver uma pendência sem abrir o modal.
@@ -2175,7 +1799,6 @@
   }
 }
 
-
 /* =========================================================
    M FINANCE.OS — INCOME OVERVIEW
    Leitura visual de rendas recebidas e valores ainda a receber.
@@ -2223,22 +1846,31 @@
 .income-summary-card--received {
   color: var(--income-received);
   border-color: var(--income-received-border);
-  background:
-    linear-gradient(135deg, rgba(237, 248, 243, 0.94), rgba(255, 255, 255, 0.98));
+  background: linear-gradient(
+    135deg,
+    rgba(237, 248, 243, 0.94),
+    rgba(255, 255, 255, 0.98)
+  );
 }
 
 .income-summary-card--pending.has-pending {
   color: var(--income-pending);
   border-color: var(--income-pending-border);
-  background:
-    linear-gradient(135deg, rgba(238, 248, 251, 0.98), rgba(255, 255, 255, 0.98));
+  background: linear-gradient(
+    135deg,
+    rgba(238, 248, 251, 0.98),
+    rgba(255, 255, 255, 0.98)
+  );
 }
 
 .income-summary-card--pending.is-clear {
   color: #60756d;
   border-color: #dbe7e2;
-  background:
-    linear-gradient(135deg, rgba(247, 250, 249, 0.98), rgba(255, 255, 255, 0.98));
+  background: linear-gradient(
+    135deg,
+    rgba(247, 250, 249, 0.98),
+    rgba(255, 255, 255, 0.98)
+  );
 }
 
 .income-summary-icon {
@@ -2343,8 +1975,11 @@
 
 .record--income-pending {
   border-color: #cfe2e9 !important;
-  background:
-    linear-gradient(90deg, rgba(239, 249, 252, 0.94), rgba(255, 255, 255, 0.98) 18%);
+  background: linear-gradient(
+    90deg,
+    rgba(239, 249, 252, 0.94),
+    rgba(255, 255, 255, 0.98) 18%
+  );
   box-shadow:
     inset 3px 0 0 var(--income-pending-strong),
     0 8px 22px rgba(42, 108, 132, 0.035);
@@ -2352,8 +1987,11 @@
 
 .record--income-received {
   border-color: #d8e7e1 !important;
-  background:
-    linear-gradient(90deg, rgba(243, 250, 247, 0.86), rgba(255, 255, 255, 0.98) 18%);
+  background: linear-gradient(
+    90deg,
+    rgba(243, 250, 247, 0.86),
+    rgba(255, 255, 255, 0.98) 18%
+  );
 }
 
 .record--income-pending .record-value.positive {
@@ -2495,7 +2133,6 @@
   }
 }
 
-
 /* =========================================================
    M FINANCE.OS — INSTALLMENTS OVERVIEW
    Visão mensal de parcelas, pendências e progresso das compras.
@@ -2545,29 +2182,41 @@
 .installment-summary-card--total {
   color: var(--installment-total);
   border-color: var(--installment-total-border);
-  background:
-    linear-gradient(135deg, rgba(242, 245, 251, 0.96), rgba(255, 255, 255, 0.98));
+  background: linear-gradient(
+    135deg,
+    rgba(242, 245, 251, 0.96),
+    rgba(255, 255, 255, 0.98)
+  );
 }
 
 .installment-summary-card--paid {
   color: var(--installment-paid);
   border-color: var(--installment-paid-border);
-  background:
-    linear-gradient(135deg, rgba(237, 248, 243, 0.94), rgba(255, 255, 255, 0.98));
+  background: linear-gradient(
+    135deg,
+    rgba(237, 248, 243, 0.94),
+    rgba(255, 255, 255, 0.98)
+  );
 }
 
 .installment-summary-card--pending.has-pending {
   color: var(--installment-pending);
   border-color: var(--installment-pending-border);
-  background:
-    linear-gradient(135deg, rgba(255, 248, 232, 0.98), rgba(255, 255, 255, 0.98));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 248, 232, 0.98),
+    rgba(255, 255, 255, 0.98)
+  );
 }
 
 .installment-summary-card--pending.is-clear {
   color: #60756d;
   border-color: #dbe7e2;
-  background:
-    linear-gradient(135deg, rgba(247, 250, 249, 0.98), rgba(255, 255, 255, 0.98));
+  background: linear-gradient(
+    135deg,
+    rgba(247, 250, 249, 0.98),
+    rgba(255, 255, 255, 0.98)
+  );
 }
 
 .installment-summary-icon {
@@ -2684,8 +2333,11 @@
 
 .installment-card--pending {
   border-color: #ead29a;
-  background:
-    linear-gradient(90deg, rgba(255, 249, 235, 0.96), rgba(255, 255, 255, 0.99) 20%);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 249, 235, 0.96),
+    rgba(255, 255, 255, 0.99) 20%
+  );
   box-shadow:
     inset 3px 0 0 #d8a22f,
     0 8px 22px rgba(153, 105, 20, 0.035);
@@ -2693,8 +2345,11 @@
 
 .installment-card--paid {
   border-color: #d5e6df;
-  background:
-    linear-gradient(90deg, rgba(242, 250, 246, 0.9), rgba(255, 255, 255, 0.99) 20%);
+  background: linear-gradient(
+    90deg,
+    rgba(242, 250, 246, 0.9),
+    rgba(255, 255, 255, 0.99) 20%
+  );
 }
 
 .installment-card-main {
@@ -2917,7 +2572,6 @@
   }
 }
 
-
 /* =========================================================
    M FINANCE.OS — ALLOCATIONS OVERVIEW
    Visão mensal de reservas e investimentos.
@@ -2967,22 +2621,31 @@
 .allocation-summary-card--total {
   color: var(--allocation-total);
   border-color: var(--allocation-total-border);
-  background:
-    linear-gradient(135deg, rgba(238, 248, 245, 0.96), rgba(255, 255, 255, 0.98));
+  background: linear-gradient(
+    135deg,
+    rgba(238, 248, 245, 0.96),
+    rgba(255, 255, 255, 0.98)
+  );
 }
 
 .allocation-summary-card--reserve {
   color: var(--allocation-reserve);
   border-color: var(--allocation-reserve-border);
-  background:
-    linear-gradient(135deg, rgba(237, 248, 243, 0.95), rgba(255, 255, 255, 0.98));
+  background: linear-gradient(
+    135deg,
+    rgba(237, 248, 243, 0.95),
+    rgba(255, 255, 255, 0.98)
+  );
 }
 
 .allocation-summary-card--investment {
   color: var(--allocation-investment);
   border-color: var(--allocation-investment-border);
-  background:
-    linear-gradient(135deg, rgba(241, 243, 251, 0.97), rgba(255, 255, 255, 0.98));
+  background: linear-gradient(
+    135deg,
+    rgba(241, 243, 251, 0.97),
+    rgba(255, 255, 255, 0.98)
+  );
 }
 
 .allocation-summary-icon {
@@ -3082,8 +2745,11 @@
 
 .record--allocation-reserve {
   border-color: #d6e7e0 !important;
-  background:
-    linear-gradient(90deg, rgba(242, 250, 246, 0.9), rgba(255, 255, 255, 0.99) 18%);
+  background: linear-gradient(
+    90deg,
+    rgba(242, 250, 246, 0.9),
+    rgba(255, 255, 255, 0.99) 18%
+  );
   box-shadow:
     inset 3px 0 0 #68ad91,
     0 8px 22px rgba(39, 116, 88, 0.03);
@@ -3091,8 +2757,11 @@
 
 .record--allocation-investment {
   border-color: #d8ddef !important;
-  background:
-    linear-gradient(90deg, rgba(243, 244, 251, 0.94), rgba(255, 255, 255, 0.99) 18%);
+  background: linear-gradient(
+    90deg,
+    rgba(243, 244, 251, 0.94),
+    rgba(255, 255, 255, 0.99) 18%
+  );
   box-shadow:
     inset 3px 0 0 #8090c2,
     0 8px 22px rgba(80, 98, 158, 0.03);
@@ -3205,7 +2874,6 @@
   }
 }
 
-
 /* =========================================================
    M FINANCE.OS — DASHBOARD OVERVIEW
    Resumo visual do mês com entradas, pendências e saldo.
@@ -3246,7 +2914,11 @@
   border: 1px solid var(--border);
   border-radius: 28px;
   background:
-    radial-gradient(circle at 92% 8%, rgba(47, 143, 107, 0.12), transparent 24%),
+    radial-gradient(
+      circle at 92% 8%,
+      rgba(47, 143, 107, 0.12),
+      transparent 24%
+    ),
     linear-gradient(135deg, #ffffff, #f7fbf9);
 }
 
@@ -3293,22 +2965,19 @@
 .dashboard-balance-card--positive {
   color: var(--dash-green);
   border-color: var(--dash-green-border);
-  background:
-    linear-gradient(145deg, #ecf8f2, #ffffff 72%);
+  background: linear-gradient(145deg, #ecf8f2, #ffffff 72%);
 }
 
 .dashboard-balance-card--negative {
   color: #a04a45;
   border-color: #edcfcc;
-  background:
-    linear-gradient(145deg, #fff2f0, #ffffff 72%);
+  background: linear-gradient(145deg, #fff2f0, #ffffff 72%);
 }
 
 .dashboard-balance-card--neutral {
   color: #64726d;
   border-color: #dde5e1;
-  background:
-    linear-gradient(145deg, #f5f8f6, #ffffff 72%);
+  background: linear-gradient(145deg, #f5f8f6, #ffffff 72%);
 }
 
 .dashboard-balance-top {
@@ -3784,7 +3453,6 @@ button.dashboard-overview-card {
   }
 }
 
-
 /* =========================================================
    M FINANCE.OS — FINAL DASHBOARD
    Versão final desktop + mobile inspirada no mockup aprovado.
@@ -3830,7 +3498,11 @@ button.dashboard-overview-card {
   border: 1px solid #d6e6e0;
   border-radius: 26px;
   background:
-    radial-gradient(circle at 90% 8%, rgba(53, 181, 137, 0.11), transparent 26%),
+    radial-gradient(
+      circle at 90% 8%,
+      rgba(53, 181, 137, 0.11),
+      transparent 26%
+    ),
     linear-gradient(135deg, #ffffff 0%, #f7fcfa 100%);
   box-shadow: 0 18px 45px rgba(28, 83, 65, 0.055);
 }
@@ -3855,13 +3527,12 @@ button.dashboard-overview-card {
   right: -70px;
   bottom: -155px;
   border-radius: 48% 52% 0 0;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(68, 183, 145, 0.02),
-      rgba(68, 183, 145, 0.16),
-      rgba(68, 183, 145, 0.08)
-    );
+  background: linear-gradient(
+    90deg,
+    rgba(68, 183, 145, 0.02),
+    rgba(68, 183, 145, 0.16),
+    rgba(68, 183, 145, 0.08)
+  );
   transform: rotate(-4deg);
 }
 
@@ -3934,7 +3605,9 @@ button.dashboard-overview-card {
   font-size: 10px;
   font-weight: 900;
   cursor: pointer;
-  transition: transform 160ms ease, box-shadow 160ms ease;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
 }
 
 .final-dashboard-details-button:hover {
@@ -4608,7 +4281,6 @@ button.final-dashboard-metric {
   }
 }
 
-
 /* =========================================================
    M FINANCE.OS — HISTORY FINAL
    Histórico moderno, visual e responsivo.
@@ -4671,29 +4343,25 @@ button.final-dashboard-metric {
 .history-summary-card--positive {
   color: var(--history-green);
   border-color: var(--history-green-border);
-  background:
-    linear-gradient(135deg, var(--history-green-soft), #fff 78%);
+  background: linear-gradient(135deg, var(--history-green-soft), #fff 78%);
 }
 
 .history-summary-card--saving {
   color: var(--history-blue);
   border-color: var(--history-blue-border);
-  background:
-    linear-gradient(135deg, var(--history-blue-soft), #fff 78%);
+  background: linear-gradient(135deg, var(--history-blue-soft), #fff 78%);
 }
 
 .history-summary-card--warning {
   color: var(--history-red);
   border-color: var(--history-red-border);
-  background:
-    linear-gradient(135deg, var(--history-red-soft), #fff 78%);
+  background: linear-gradient(135deg, var(--history-red-soft), #fff 78%);
 }
 
 .history-summary-card--neutral {
   color: #65746f;
   border-color: #dce6e2;
-  background:
-    linear-gradient(135deg, #f6faf8, #fff 78%);
+  background: linear-gradient(135deg, #f6faf8, #fff 78%);
 }
 
 .history-summary-icon {
@@ -5101,7 +4769,6 @@ button.final-dashboard-metric {
   }
 }
 
-
 /* Hotfix: centralização dos ícones do Histórico */
 .history-summary-icon,
 .history-trend-icon,
@@ -5122,7 +4789,6 @@ button.final-dashboard-metric {
   margin: 0;
 }
 
-
 /* =========================================================
    M FINANCE.OS — AUTH / SPLASH / ERROR FINAL
    Login moderno, splash mobile e recuperação visual.
@@ -5137,8 +4803,16 @@ button.final-dashboard-metric {
   min-height: 100dvh;
   padding: clamp(20px, 3vw, 42px);
   background:
-    radial-gradient(circle at 10% 8%, rgba(47, 180, 134, 0.12), transparent 28%),
-    radial-gradient(circle at 92% 88%, rgba(83, 201, 191, 0.09), transparent 26%),
+    radial-gradient(
+      circle at 10% 8%,
+      rgba(47, 180, 134, 0.12),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 92% 88%,
+      rgba(83, 201, 191, 0.09),
+      transparent 26%
+    ),
     #f4f8f6;
 }
 
@@ -5165,8 +4839,16 @@ button.final-dashboard-metric {
   flex-direction: column;
   color: #eaf8f3;
   background:
-    radial-gradient(circle at 88% 10%, rgba(121, 226, 193, 0.18), transparent 24%),
-    radial-gradient(circle at 8% 94%, rgba(47, 180, 134, 0.12), transparent 27%),
+    radial-gradient(
+      circle at 88% 10%,
+      rgba(121, 226, 193, 0.18),
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at 8% 94%,
+      rgba(47, 180, 134, 0.12),
+      transparent 27%
+    ),
     linear-gradient(155deg, #0d2b2a 0%, #081d21 74%);
 }
 
@@ -5338,7 +5020,11 @@ button.final-dashboard-metric {
   flex-direction: column;
   justify-content: center;
   background:
-    radial-gradient(circle at 100% 0%, rgba(47, 143, 107, 0.07), transparent 30%),
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(47, 143, 107, 0.07),
+      transparent 30%
+    ),
     #fff;
 }
 
@@ -5483,16 +5169,22 @@ button.final-dashboard-metric {
   min-height: 100dvh;
   position: relative;
   overflow: hidden;
-  padding:
-    max(24px, env(safe-area-inset-top))
-    24px
+  padding: max(24px, env(safe-area-inset-top)) 24px
     max(24px, env(safe-area-inset-bottom));
   display: grid;
   place-items: center;
   color: #effbf7;
   background:
-    radial-gradient(circle at 50% 35%, rgba(71, 205, 163, 0.18), transparent 28%),
-    radial-gradient(circle at 12% 90%, rgba(83, 201, 191, 0.08), transparent 24%),
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(71, 205, 163, 0.18),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 12% 90%,
+      rgba(83, 201, 191, 0.08),
+      transparent 24%
+    ),
     linear-gradient(160deg, #0d2b2a 0%, #071a1e 78%);
 }
 
@@ -5642,7 +5334,11 @@ button.final-dashboard-metric {
   min-height: 100dvh;
   padding: 22px;
   background:
-    radial-gradient(circle at 50% 10%, rgba(47, 143, 107, 0.09), transparent 30%),
+    radial-gradient(
+      circle at 50% 10%,
+      rgba(47, 143, 107, 0.09),
+      transparent 30%
+    ),
     linear-gradient(180deg, #f6faf8, #eef5f2);
 }
 
@@ -5653,7 +5349,11 @@ button.final-dashboard-metric {
   border: 1px solid #d5e4de;
   border-radius: 28px;
   background:
-    radial-gradient(circle at 100% 0%, rgba(47, 143, 107, 0.07), transparent 28%),
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(47, 143, 107, 0.07),
+      transparent 28%
+    ),
     #fff;
   box-shadow: 0 30px 90px rgba(21, 58, 46, 0.13);
 }
@@ -5874,13 +5574,14 @@ button.final-dashboard-metric {
 
   .auth-v2-showcase {
     min-height: 285px;
-    padding:
-      max(24px, env(safe-area-inset-top))
-      20px
-      35px;
+    padding: max(24px, env(safe-area-inset-top)) 20px 35px;
     justify-content: flex-end;
     background:
-      radial-gradient(circle at 86% 5%, rgba(121, 226, 193, 0.17), transparent 28%),
+      radial-gradient(
+        circle at 86% 5%,
+        rgba(121, 226, 193, 0.17),
+        transparent 28%
+      ),
       linear-gradient(155deg, #0d2b2a, #071b1f);
   }
 
@@ -5913,10 +5614,7 @@ button.final-dashboard-metric {
     position: relative;
     z-index: 3;
     margin-top: -24px;
-    padding:
-      24px
-      20px
-      max(28px, env(safe-area-inset-bottom));
+    padding: 24px 20px max(28px, env(safe-area-inset-bottom));
     justify-content: flex-start;
     border-radius: 26px 26px 0 0;
     background: #fff;
@@ -5987,9 +5685,7 @@ button.final-dashboard-metric {
   }
 
   .fatal-error-v2 {
-    padding:
-      max(14px, env(safe-area-inset-top))
-      14px
+    padding: max(14px, env(safe-area-inset-top)) 14px
       max(14px, env(safe-area-inset-bottom));
   }
 
@@ -6056,7 +5752,6 @@ button.final-dashboard-metric {
   }
 }
 
-
 /* =========================================================
    M FINANCE.OS — LOGIN MINIMAL + NATIVE-LIKE SPLASH
    Mobile-first. Menos informação, zero rolagem em telas comuns.
@@ -6075,8 +5770,16 @@ button.final-dashboard-metric {
   display: grid;
   place-items: center;
   background:
-    radial-gradient(circle at 12% 5%, rgba(47, 165, 125, 0.13), transparent 27%),
-    radial-gradient(circle at 90% 90%, rgba(90, 208, 174, 0.08), transparent 25%),
+    radial-gradient(
+      circle at 12% 5%,
+      rgba(47, 165, 125, 0.13),
+      transparent 27%
+    ),
+    radial-gradient(
+      circle at 90% 90%,
+      rgba(90, 208, 174, 0.08),
+      transparent 25%
+    ),
     #f3f8f6;
 }
 
@@ -6105,7 +5808,11 @@ button.final-dashboard-metric {
   justify-content: space-between;
   color: #f6fffc;
   background:
-    radial-gradient(circle at 88% 8%, rgba(112, 226, 189, 0.16), transparent 25%),
+    radial-gradient(
+      circle at 88% 8%,
+      rgba(112, 226, 189, 0.16),
+      transparent 25%
+    ),
     linear-gradient(150deg, var(--login-deep-2), var(--login-deep) 74%);
 }
 
@@ -6211,7 +5918,11 @@ button.final-dashboard-metric {
   flex-direction: column;
   justify-content: center;
   background:
-    radial-gradient(circle at 100% 0%, rgba(47, 143, 107, 0.055), transparent 30%),
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(47, 143, 107, 0.055),
+      transparent 30%
+    ),
     #fff;
 }
 
@@ -6352,15 +6063,17 @@ button.final-dashboard-metric {
   inset: 0;
   z-index: 9999;
   overflow: hidden;
-  padding:
-    max(22px, env(safe-area-inset-top))
-    22px
+  padding: max(22px, env(safe-area-inset-top)) 22px
     max(22px, env(safe-area-inset-bottom));
   display: grid;
   place-items: center;
   color: #f0fbf7;
   background:
-    radial-gradient(circle at 50% 42%, rgba(64, 211, 163, 0.13), transparent 27%),
+    radial-gradient(
+      circle at 50% 42%,
+      rgba(64, 211, 163, 0.13),
+      transparent 27%
+    ),
     linear-gradient(160deg, #0c2d2a 0%, #06191d 76%);
   isolation: isolate;
 }
@@ -6435,12 +6148,12 @@ button.final-dashboard-metric {
 
 .splash-launch-halo--outer {
   inset: 0;
-  animation: splash-halo-outer 1.7s cubic-bezier(.16, 1, .3, 1) both;
+  animation: splash-halo-outer 1.7s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .splash-launch-halo--inner {
   inset: 19px;
-  animation: splash-halo-inner 1.55s .08s cubic-bezier(.16, 1, .3, 1) both;
+  animation: splash-halo-inner 1.55s 0.08s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .splash-launch-mark {
@@ -6452,13 +6165,16 @@ button.final-dashboard-metric {
   place-items: center;
   border: 1px solid rgba(143, 237, 208, 0.16);
   border-radius: 30px;
-  background:
-    linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.018));
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.075),
+    rgba(255, 255, 255, 0.018)
+  );
   box-shadow:
     0 24px 60px rgba(0, 0, 0, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(18px);
-  animation: splash-mark-in 900ms 80ms cubic-bezier(.16, 1, .3, 1) both;
+  animation: splash-mark-in 900ms 80ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .splash-launch-mark .brand-mark {
@@ -6469,8 +6185,7 @@ button.final-dashboard-metric {
 .splash-launch-mark svg {
   width: 82px;
   height: 82px;
-  filter:
-    drop-shadow(0 14px 24px rgba(40, 215, 160, 0.22));
+  filter: drop-shadow(0 14px 24px rgba(40, 215, 160, 0.22));
 }
 
 .splash-launch-shine {
@@ -6487,14 +6202,14 @@ button.final-dashboard-metric {
     transparent
   );
   filter: blur(1px);
-  animation: splash-shine 1200ms 330ms cubic-bezier(.16, 1, .3, 1) both;
+  animation: splash-shine 1200ms 330ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .splash-launch-wordmark {
   margin-top: 23px;
   opacity: 0;
   transform: translateY(10px);
-  animation: splash-copy-in 620ms 410ms cubic-bezier(.16, 1, .3, 1) forwards;
+  animation: splash-copy-in 620ms 410ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .splash-launch-wordmark strong,
@@ -6520,7 +6235,7 @@ button.final-dashboard-metric {
   margin-top: 27px;
   overflow: hidden;
   border-radius: 999px;
-  background: rgba(255,255,255,.075);
+  background: rgba(255, 255, 255, 0.075);
   opacity: 0;
   animation: splash-loader-show 300ms 650ms ease forwards;
 }
@@ -6530,10 +6245,10 @@ button.final-dashboard-metric {
   height: 100%;
   display: block;
   border-radius: inherit;
-  background:
-    linear-gradient(90deg, #36b987, #7ce6c3);
+  background: linear-gradient(90deg, #36b987, #7ce6c3);
   box-shadow: 0 0 14px rgba(95, 224, 183, 0.26);
-  animation: splash-loader-run 920ms 680ms cubic-bezier(.65, 0, .35, 1) infinite;
+  animation: splash-loader-run 920ms 680ms cubic-bezier(0.65, 0, 0.35, 1)
+    infinite;
 }
 
 .splash-launch-status {
@@ -6569,7 +6284,7 @@ button.final-dashboard-metric {
 @keyframes splash-mark-in {
   0% {
     opacity: 0;
-    transform: translateY(13px) scale(.78) rotateX(12deg);
+    transform: translateY(13px) scale(0.78) rotateX(12deg);
     filter: blur(8px);
   }
 
@@ -6589,15 +6304,15 @@ button.final-dashboard-metric {
 @keyframes splash-halo-outer {
   0% {
     opacity: 0;
-    transform: scale(.55);
+    transform: scale(0.55);
   }
 
   55% {
-    opacity: .8;
+    opacity: 0.8;
   }
 
   100% {
-    opacity: .32;
+    opacity: 0.32;
     transform: scale(1);
   }
 }
@@ -6605,11 +6320,11 @@ button.final-dashboard-metric {
 @keyframes splash-halo-inner {
   0% {
     opacity: 0;
-    transform: scale(.65);
+    transform: scale(0.65);
   }
 
   100% {
-    opacity: .65;
+    opacity: 0.65;
     transform: scale(1);
   }
 }
@@ -6621,7 +6336,7 @@ button.final-dashboard-metric {
   }
 
   30% {
-    opacity: .8;
+    opacity: 0.8;
   }
 
   100% {
@@ -6662,11 +6377,11 @@ button.final-dashboard-metric {
 @keyframes splash-grid-breathe {
   0%,
   100% {
-    opacity: .28;
+    opacity: 0.28;
   }
 
   50% {
-    opacity: .5;
+    opacity: 0.5;
   }
 }
 
@@ -6705,10 +6420,7 @@ button.final-dashboard-metric {
 
   .login-minimal-brand-panel {
     min-height: 0;
-    padding:
-      max(20px, env(safe-area-inset-top))
-      20px
-      31px;
+    padding: max(20px, env(safe-area-inset-top)) 20px 31px;
     justify-content: flex-end;
   }
 
@@ -6750,10 +6462,7 @@ button.final-dashboard-metric {
   .login-minimal-auth {
     min-height: 0;
     margin-top: -22px;
-    padding:
-      23px
-      20px
-      max(17px, env(safe-area-inset-bottom));
+    padding: 23px 20px max(17px, env(safe-area-inset-bottom));
     justify-content: center;
     border-radius: 25px 25px 0 0;
     background: #fff;
@@ -6938,7 +6647,6 @@ button.final-dashboard-metric {
   }
 }
 
-
 /* =========================================================
    M FINANCE.OS — ACCOUNT FINAL
    Conta compacta, moderna e mobile-first.
@@ -6978,7 +6686,11 @@ button.final-dashboard-metric {
   border: 1px solid #d7e6e0;
   border-radius: 22px;
   background:
-    radial-gradient(circle at 100% 0%, rgba(47, 143, 107, 0.08), transparent 26%),
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(47, 143, 107, 0.08),
+      transparent 26%
+    ),
     linear-gradient(135deg, #ffffff, #f8fcfa);
   box-shadow: 0 14px 34px rgba(28, 58, 49, 0.05);
 }
@@ -7000,10 +6712,8 @@ button.final-dashboard-metric {
   border: 1px solid #cfe3db;
   border-radius: 19px;
   color: #fff;
-  background:
-    linear-gradient(145deg, #2d8b68, #35a07a);
-  box-shadow:
-    0 11px 26px rgba(47, 143, 107, 0.13);
+  background: linear-gradient(145deg, #2d8b68, #35a07a);
+  box-shadow: 0 11px 26px rgba(47, 143, 107, 0.13);
   font-size: 20px;
   font-weight: 900;
 }
@@ -7105,23 +6815,19 @@ button.final-dashboard-metric {
 }
 
 .account-modern-action--export {
-  background:
-    linear-gradient(145deg, rgba(239, 249, 245, 0.82), #fff 56%);
+  background: linear-gradient(145deg, rgba(239, 249, 245, 0.82), #fff 56%);
 }
 
 .account-modern-action--install {
-  background:
-    linear-gradient(145deg, rgba(240, 244, 251, 0.75), #fff 56%);
+  background: linear-gradient(145deg, rgba(240, 244, 251, 0.75), #fff 56%);
 }
 
 .account-modern-action--privacy {
-  background:
-    linear-gradient(145deg, rgba(246, 250, 248, 0.8), #fff 56%);
+  background: linear-gradient(145deg, rgba(246, 250, 248, 0.8), #fff 56%);
 }
 
 .account-modern-action--session {
-  background:
-    linear-gradient(145deg, rgba(249, 250, 249, 0.85), #fff 56%);
+  background: linear-gradient(145deg, rgba(249, 250, 249, 0.85), #fff 56%);
 }
 
 .account-modern-action-head {
@@ -7251,8 +6957,7 @@ button.final-dashboard-metric {
   gap: 18px;
   border: 1px solid #ecd8d8;
   border-radius: 18px;
-  background:
-    linear-gradient(135deg, #fffafa, #fff);
+  background: linear-gradient(135deg, #fffafa, #fff);
 }
 
 .account-modern-danger-copy {
@@ -7467,7 +7172,6 @@ button.final-dashboard-metric {
   }
 }
 
-
 /* =========================================================
    M FINANCE.OS — PRIVACY FINAL
    Privacidade com hierarquia visual, leitura clara e mobile-first.
@@ -7490,8 +7194,16 @@ button.final-dashboard-metric {
   min-height: 100dvh;
   padding: clamp(18px, 3vw, 34px);
   background:
-    radial-gradient(circle at 10% 0%, rgba(47, 143, 107, 0.09), transparent 28%),
-    radial-gradient(circle at 92% 88%, rgba(83, 201, 191, 0.07), transparent 24%),
+    radial-gradient(
+      circle at 10% 0%,
+      rgba(47, 143, 107, 0.09),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 92% 88%,
+      rgba(83, 201, 191, 0.07),
+      transparent 24%
+    ),
     #f5f9f7;
 }
 
@@ -7502,7 +7214,11 @@ button.final-dashboard-metric {
   border: 1px solid #d8e6e1;
   border-radius: 28px;
   background:
-    radial-gradient(circle at 100% 0%, rgba(47, 143, 107, 0.055), transparent 24%),
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(47, 143, 107, 0.055),
+      transparent 24%
+    ),
     #fff;
   box-shadow: 0 24px 70px rgba(23, 57, 46, 0.09);
 }
@@ -7565,7 +7281,11 @@ button.final-dashboard-metric {
   border: 1px solid #d7e5df;
   border-radius: 23px;
   background:
-    radial-gradient(circle at 91% 12%, rgba(80, 195, 156, 0.10), transparent 24%),
+    radial-gradient(
+      circle at 91% 12%,
+      rgba(80, 195, 156, 0.1),
+      transparent 24%
+    ),
     linear-gradient(135deg, #f8fcfa, #fff 68%);
 }
 
@@ -7629,8 +7349,7 @@ button.final-dashboard-metric {
   border: 1px solid #cfe3db;
   border-radius: 23px;
   color: var(--privacy-green);
-  background:
-    linear-gradient(145deg, #edf8f3, #fff);
+  background: linear-gradient(145deg, #edf8f3, #fff);
   box-shadow: 0 14px 30px rgba(40, 117, 89, 0.09);
 }
 
@@ -7703,23 +7422,19 @@ button.final-dashboard-metric {
 }
 
 .privacy-modern-card--access {
-  background:
-    linear-gradient(145deg, rgba(238, 248, 244, 0.92), #fff 60%);
+  background: linear-gradient(145deg, rgba(238, 248, 244, 0.92), #fff 60%);
 }
 
 .privacy-modern-card--storage {
-  background:
-    linear-gradient(145deg, rgba(241, 244, 251, 0.90), #fff 60%);
+  background: linear-gradient(145deg, rgba(241, 244, 251, 0.9), #fff 60%);
 }
 
 .privacy-modern-card--admin {
-  background:
-    linear-gradient(145deg, rgba(247, 250, 248, 0.94), #fff 60%);
+  background: linear-gradient(145deg, rgba(247, 250, 248, 0.94), #fff 60%);
 }
 
 .privacy-modern-card--delete {
-  background:
-    linear-gradient(145deg, rgba(255, 249, 237, 0.88), #fff 60%);
+  background: linear-gradient(145deg, rgba(255, 249, 237, 0.88), #fff 60%);
 }
 
 .privacy-modern-card-top {
@@ -7778,8 +7493,7 @@ button.final-dashboard-metric {
   gap: 12px;
   border: 1px solid var(--privacy-amber-border);
   border-radius: 17px;
-  background:
-    linear-gradient(135deg, var(--privacy-amber-soft), #fff 76%);
+  background: linear-gradient(135deg, var(--privacy-amber-soft), #fff 76%);
 }
 
 .privacy-modern-note-icon {
@@ -7856,9 +7570,7 @@ button.final-dashboard-metric {
 
   .privacy-modern-standalone .privacy-modern-page {
     min-height: 100dvh;
-    padding:
-      max(16px, env(safe-area-inset-top))
-      16px
+    padding: max(16px, env(safe-area-inset-top)) 16px
       max(22px, env(safe-area-inset-bottom));
   }
 
@@ -7999,183 +7711,199 @@ button.final-dashboard-metric {
 }
 
 /* =========================================================
-   M FINANCE.OS — MOBILE USABILITY HOTFIX
-   Ajustes para iPhone/Android:
-   - registros sem esmagar texto e status
-   - ações em linha própria
-   - espaço real para a navegação inferior
-   - modal adaptado ao teclado virtual
+   M FINANCE.OS — MOBILE RECORDS / MODAL FINAL HOTFIX
+   Estrutura responsiva real para aparelhos estreitos.
    ========================================================= */
 
+/* Desktop: preserva a leitura horizontal original. */
+.finance-record {
+  min-width: 0;
+}
+
+.finance-record-primary {
+  min-width: 0;
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+}
+
+.finance-record-primary .record-main {
+  min-width: 0;
+}
+
+.finance-record-primary .record-value {
+  min-width: 115px;
+  text-align: right;
+}
+
 @media (max-width: 760px) {
-  /* -------------------------------------------------------
-     LISTAS — cards realmente mobile
-     ------------------------------------------------------- */
-
-  .income-overview,
-  .expense-overview,
-  .installment-overview,
-  .allocation-overview {
-    padding-bottom: calc(104px + env(safe-area-inset-bottom));
+  /* Dá espaço real para a navegação fixa do app. */
+  .content:has(.income-overview),
+  .content:has(.expense-overview),
+  .content:has(.installment-overview),
+  .content:has(.allocation-overview) {
+    padding-bottom: calc(106px + env(safe-area-inset-bottom));
   }
 
-  .income-overview .records,
-  .expense-overview .records {
-    gap: 10px;
+  /* O card deixa de tentar comportar tudo na mesma linha. */
+  .record.finance-record {
+    min-height: 0 !important;
+    padding: 13px !important;
+    display: block !important;
+    border-radius: 17px !important;
   }
 
-  .income-overview .record,
-  .expense-overview .record {
-    min-height: 0;
-    padding: 14px 13px;
+  .finance-record-primary {
+    width: 100%;
     display: grid !important;
     grid-template-columns: minmax(0, 1fr) auto !important;
-    grid-template-areas:
-      "main value"
-      "actions actions";
     align-items: start !important;
-    column-gap: 12px !important;
-    row-gap: 12px !important;
-    border-radius: 17px;
+    gap: 10px !important;
   }
 
-  .income-overview .record-main,
-  .expense-overview .record-main {
-    grid-area: main;
+  .finance-record-primary .record-main {
+    width: auto !important;
     min-width: 0 !important;
-    width: 100%;
   }
 
-  .income-overview .record-main > strong,
-  .expense-overview .record-main > strong {
+  .finance-record-primary .record-main > strong {
     display: block;
-    min-width: 0;
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    white-space: nowrap !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
     font-size: 12px;
     line-height: 1.25;
   }
 
-  .income-overview .record-meta,
-  .expense-overview .record-meta {
+  .finance-record-primary .record-meta {
     min-width: 0;
-    margin-top: 7px;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 7px;
+    margin-top: 6px;
+    display: flex !important;
+    align-items: flex-start !important;
+    flex-direction: column !important;
+    gap: 7px !important;
   }
 
-  .income-overview .record-meta > span:first-child,
-  .expense-overview .record-meta > span:first-child {
-    display: block;
+  .finance-record-primary .record-meta > span:first-child {
     width: 100%;
     min-width: 0;
-    overflow-wrap: anywhere;
-    word-break: normal;
-    white-space: normal;
-    font-size: 9px;
+    margin-top: 0;
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
     line-height: 1.45;
+    font-size: 9px;
   }
 
-  .income-overview .status-badge,
-  .expense-overview .status-badge {
-    width: max-content;
+  .finance-record-primary .status-badge {
+    width: auto !important;
     max-width: 100%;
     min-height: 22px;
-    padding-inline: 8px;
-    white-space: nowrap;
-    writing-mode: horizontal-tb;
-    word-break: keep-all;
-    overflow-wrap: normal;
+    margin-top: 0 !important;
+    padding: 0 8px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    white-space: nowrap !important;
+    overflow-wrap: normal !important;
+    word-break: keep-all !important;
+    writing-mode: horizontal-tb !important;
     font-size: 7px;
   }
 
-  .income-overview .record-value,
-  .expense-overview .record-value {
-    grid-area: value;
-    min-width: max-content;
+  .finance-record-primary .record-value {
+    min-width: max-content !important;
+    width: auto !important;
     padding-top: 1px;
     text-align: right;
     white-space: nowrap;
   }
 
-  .income-overview .record-value strong,
-  .expense-overview .record-value strong {
+  .finance-record-primary .record-value strong {
+    white-space: nowrap !important;
     font-size: 11px;
     line-height: 1.2;
   }
 
-  .income-overview .record-actions,
-  .expense-overview .record-actions {
-    grid-area: actions;
+  .finance-record-actions {
     width: 100%;
     min-width: 0;
-    display: flex !important;
+    margin-top: 12px;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 42px 42px;
     align-items: center;
-    justify-content: flex-end;
-    gap: 8px;
+    gap: 8px !important;
   }
 
-  .income-overview .record-actions .income-receive-button,
-  .expense-overview .record-actions .expense-pay-button {
+  .finance-record-actions > .small-button {
+    width: 100%;
     min-width: 0;
     min-height: 42px;
-    flex: 1 1 auto;
+    margin: 0 !important;
+    padding-inline: 10px;
     justify-content: center;
-    padding-inline: 12px;
     border-radius: 12px;
+    white-space: nowrap;
     font-size: 8px;
   }
 
-  .income-overview .record-actions .icon-button,
-  .expense-overview .record-actions .icon-button {
-    width: 42px;
-    height: 42px;
+  .finance-record-actions > .icon-button {
+    width: 42px !important;
+    height: 42px !important;
     min-width: 42px;
-    flex: 0 0 42px;
+    margin: 0 !important;
     border-radius: 12px;
   }
 
-  .income-overview .record-actions > .icon-button:first-of-type,
-  .expense-overview .record-actions > .icon-button:first-of-type {
-    margin-left: auto;
+  /* Registros concluídos não têm ação principal:
+     os ícones ficam alinhados à direita sem criar coluna vazia. */
+  .finance-record-actions > .icon-button:first-child {
+    grid-column: 2;
   }
 
-  /* Cabeçalho da seção também precisa respirar em telas estreitas. */
+  .finance-record-actions > .small-button + .icon-button {
+    grid-column: auto;
+  }
+
+  /* Cabeçalhos das seções não esmagam título/total. */
   .income-section-header,
-  .expense-section-header {
-    align-items: flex-start;
+  .expense-section-header,
+  .allocation-section-header,
+  .installment-section-header {
+    align-items: flex-start !important;
+    gap: 10px !important;
   }
 
   .income-section-header > div,
-  .expense-section-header > div {
+  .expense-section-header > div,
+  .allocation-section-header > div,
+  .installment-section-header > div {
     min-width: 0;
-    flex: 1;
+    flex: 1 1 auto;
   }
 
   .income-section-total,
-  .expense-section-total {
+  .expense-section-total,
+  .allocation-section-total,
+  .installment-section-total {
     flex: 0 0 auto;
     white-space: nowrap;
   }
 
-  /* -------------------------------------------------------
-     MODAL — comportamento de bottom sheet + teclado virtual
-     ------------------------------------------------------- */
-
+  /* Modal em aparelhos reais: bottom sheet rolável com teclado aberto. */
   .modal-backdrop {
     position: fixed !important;
     inset: 0 !important;
     width: 100% !important;
     height: 100dvh !important;
     min-height: 100dvh !important;
-    padding:
-      max(10px, env(safe-area-inset-top))
-      0
-      0 !important;
+    padding: max(8px, env(safe-area-inset-top)) 0 0 !important;
     align-items: flex-end !important;
     justify-content: center !important;
     overflow: hidden !important;
@@ -8184,52 +7912,47 @@ button.final-dashboard-metric {
   .modal-card {
     width: 100% !important;
     max-width: none !important;
-    max-height: calc(100dvh - max(10px, env(safe-area-inset-top))) !important;
+    max-height: calc(100dvh - max(8px, env(safe-area-inset-top))) !important;
     margin: 0 !important;
-    padding: 0 18px max(12px, env(safe-area-inset-bottom)) !important;
+    padding-left: 17px !important;
+    padding-right: 17px !important;
+    padding-bottom: max(12px, env(safe-area-inset-bottom)) !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
-    border-radius: 26px 26px 0 0 !important;
+    border-radius: 25px 25px 0 0 !important;
     scroll-padding-top: 92px;
-    scroll-padding-bottom: 92px;
+    scroll-padding-bottom: 110px;
   }
 
   .modal-header {
     position: sticky !important;
     top: 0;
-    z-index: 20;
-    margin: 0 -18px 16px !important;
-    padding: 18px 18px 14px !important;
-    border-bottom: 1px solid #e4ece8;
-    background: rgba(255, 255, 255, 0.97);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    z-index: 30;
+    margin-left: -17px !important;
+    margin-right: -17px !important;
+    padding-left: 17px !important;
+    padding-right: 17px !important;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
   }
 
   .modal-footer {
     position: sticky !important;
     bottom: calc(-1 * max(12px, env(safe-area-inset-bottom)));
-    z-index: 20;
-    margin: 18px -18px calc(-1 * max(12px, env(safe-area-inset-bottom))) !important;
-    padding:
-      12px
-      18px
-      max(12px, env(safe-area-inset-bottom)) !important;
-    border-top: 1px solid #e4ece8;
-    background: rgba(255, 255, 255, 0.97);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    z-index: 30;
+    margin-left: -17px !important;
+    margin-right: -17px !important;
+    padding-left: 17px !important;
+    padding-right: 17px !important;
+    padding-bottom: max(12px, env(safe-area-inset-bottom)) !important;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
   }
 
-  .modal-footer .primary-button,
-  .modal-footer .secondary-button {
-    min-height: 46px;
-  }
-
-  /* O Safari amplia inputs com fonte menor que 16px.
-     Mantendo 16px evitamos zoom ao focar os campos. */
   .modal-card input,
   .modal-card select,
   .modal-card textarea,
@@ -8238,55 +7961,1630 @@ button.final-dashboard-metric {
   }
 
   .modal-card .field {
-    scroll-margin-top: 90px;
-    scroll-margin-bottom: 100px;
+    scroll-margin-top: 92px;
+    scroll-margin-bottom: 115px;
   }
 }
 
 @media (max-width: 390px) {
-  .income-overview .record,
-  .expense-overview .record {
-    padding: 13px 12px;
-    column-gap: 9px !important;
+  .record.finance-record {
+    padding: 12px !important;
   }
 
-  .income-overview .record-value strong,
-  .expense-overview .record-value strong {
+  .finance-record-primary {
+    gap: 8px !important;
+  }
+
+  .finance-record-primary .record-value strong {
     font-size: 10px;
   }
 
-  .income-overview .record-actions,
-  .expense-overview .record-actions {
-    gap: 7px;
+  .finance-record-actions {
+    grid-template-columns: minmax(0, 1fr) 40px 40px;
+    gap: 7px !important;
   }
 
-  .income-overview .record-actions .icon-button,
-  .expense-overview .record-actions .icon-button {
-    width: 40px;
-    height: 40px;
-    min-width: 40px;
-    flex-basis: 40px;
-  }
-
-  .income-overview .record-actions .income-receive-button,
-  .expense-overview .record-actions .expense-pay-button {
+  .finance-record-actions > .small-button {
     min-height: 40px;
-    padding-inline: 9px;
+    padding-inline: 8px;
     font-size: 7.5px;
   }
 
-  .modal-card {
-    padding-inline: 15px !important;
-  }
-
-  .modal-header {
-    margin-inline: -15px !important;
-    padding-inline: 15px !important;
-  }
-
-  .modal-footer {
-    margin-inline: -15px !important;
-    padding-inline: 15px !important;
+  .finance-record-actions > .icon-button {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px;
   }
 }
 
+/* =========================================================
+   M FINANCE.OS — INCOME MANUAL ORDER
+   Drag handle para reorganizar rendas sem conflitar com o scroll.
+   ========================================================= */
+
+.income-sortable-list {
+  position: relative;
+}
+
+.finance-record.is-dragging {
+  z-index: 40;
+  opacity: 0.97;
+  box-shadow:
+    0 18px 42px rgba(23, 61, 49, 0.15),
+    0 4px 12px rgba(23, 61, 49, 0.08);
+}
+
+.record-title-row {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.record-title-row > strong {
+  min-width: 0;
+}
+
+.record-drag-handle {
+  width: 20px;
+  height: 28px;
+  min-width: 20px;
+  padding: 0;
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 20px;
+  border: 0;
+  border-radius: 6px;
+  color: #9aa9a3;
+  background: transparent;
+  opacity: 0.68;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  transition:
+    transform 150ms ease,
+    color 150ms ease,
+    opacity 150ms ease;
+}
+
+.record-drag-handle:hover:not(:disabled) {
+  color: #5f756d;
+  opacity: 1;
+}
+
+.record-drag-handle:active:not(:disabled) {
+  cursor: grabbing;
+  transform: scale(0.94);
+  color: #28765b;
+  opacity: 1;
+}
+
+.record-drag-handle:focus-visible {
+  outline: 2px solid rgba(47, 143, 107, 0.2);
+  outline-offset: 1px;
+}
+
+.record-drag-handle:disabled {
+  cursor: wait;
+  opacity: 0.3;
+}
+
+.finance-sortable-list,
+.income-sortable-list {
+  position: relative;
+}
+
+.installment-card-heading {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.installment-card-heading > strong {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.installment-card.is-dragging,
+.finance-record.is-dragging {
+  z-index: 40;
+  opacity: 0.97;
+  box-shadow:
+    0 18px 42px rgba(23, 61, 49, 0.15),
+    0 4px 12px rgba(23, 61, 49, 0.08);
+}
+
+/* O hotfix mobile anterior estiliza o strong como filho direto
+   de .record-main. Com o handle, o título passa a viver nesta linha. */
+.finance-record-primary .record-title-row > strong {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+  .record-title-row {
+    gap: 7px;
+  }
+
+  .record-drag-handle {
+    width: 18px;
+    height: 30px;
+    min-width: 18px;
+    flex-basis: 18px;
+  }
+
+  .finance-record-primary .record-title-row > strong {
+    font-size: 12px;
+    line-height: 1.25;
+  }
+
+  .finance-record.is-dragging {
+    box-shadow:
+      0 18px 42px rgba(23, 61, 49, 0.15),
+      0 4px 12px rgba(23, 61, 49, 0.08);
+  }
+}
+
+/* =========================================================
+   M FINANCE.OS — MOBILE ENTRY MODAL UX V3
+   Bottom sheet consistente, conteúdo rolável e ações sempre acessíveis.
+   ========================================================= */
+
+.modal-body {
+  min-width: 0;
+}
+
+@media (max-width: 760px) {
+  .modal-backdrop {
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+    padding: max(10px, env(safe-area-inset-top)) 0 0 !important;
+    overflow: hidden !important;
+    background: rgba(17, 31, 26, 0.46) !important;
+    backdrop-filter: blur(7px) !important;
+    -webkit-backdrop-filter: blur(7px) !important;
+  }
+
+  .modal-card {
+    width: 100% !important;
+    max-width: none !important;
+    max-height: calc(100dvh - max(10px, env(safe-area-inset-top))) !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: grid !important;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    overflow: hidden !important;
+    overscroll-behavior: contain;
+    border: 1px solid rgba(255, 255, 255, 0.78) !important;
+    border-bottom: 0 !important;
+    border-radius: 27px 27px 0 0 !important;
+    background: #ffffff !important;
+    box-shadow: 0 -18px 60px rgba(20, 52, 41, 0.18) !important;
+  }
+
+  .modal-header {
+    position: relative !important;
+    top: auto !important;
+    z-index: 4;
+    margin: 0 !important;
+    padding: 18px 18px 15px !important;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    border-bottom: 1px solid #e7eeeb;
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .modal-header > div:first-child {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .modal-header .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    min-height: 25px;
+    padding: 0 9px;
+    border-radius: 999px;
+    font-size: 7.5px;
+    letter-spacing: 0.075em;
+  }
+
+  .modal-header h2 {
+    margin-top: 8px !important;
+    font-size: clamp(25px, 7.8vw, 31px) !important;
+    line-height: 1.02;
+    letter-spacing: -0.045em !important;
+  }
+
+  .modal-close-button {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    flex: 0 0 44px;
+    margin: -4px -5px 0 0 !important;
+    border-radius: 14px !important;
+    color: #71817b !important;
+    background: transparent !important;
+  }
+
+  .modal-close-button:active:not(:disabled) {
+    background: #f2f6f4 !important;
+  }
+
+  .modal-body {
+    min-height: 0;
+    padding: 18px 17px 24px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding-top: 18px;
+    scroll-padding-bottom: 28px;
+  }
+
+  .modal-body .form-offline-note,
+  .modal-body .form-submit-error {
+    margin-bottom: 15px;
+  }
+
+  .modal-body .field {
+    min-width: 0;
+    margin-bottom: 15px;
+    scroll-margin-block: 20px;
+  }
+
+  .modal-body .field > span {
+    margin-bottom: 1px;
+    font-size: 11px;
+    line-height: 1.3;
+  }
+
+  .modal-body .form-grid {
+    min-width: 0;
+    gap: 10px !important;
+  }
+
+  .modal-body .form-grid > * {
+    min-width: 0;
+  }
+
+  .modal-card input,
+  .modal-card select,
+  .modal-card textarea,
+  .modal-card .money-input {
+    min-width: 0;
+    min-height: 52px !important;
+    border-radius: 14px !important;
+  }
+
+  .modal-card input,
+  .modal-card select,
+  .modal-card textarea,
+  .modal-card .money-input input {
+    font-size: 16px !important;
+  }
+
+  .modal-card input[type="date"],
+  .modal-card input[type="month"],
+  .modal-card input[type="number"] {
+    width: 100%;
+  }
+
+  .modal-card .money-input {
+    display: flex;
+    align-items: center;
+  }
+
+  .modal-card .money-input input {
+    min-height: 50px !important;
+  }
+
+  .modal-card .form-note,
+  .modal-card .calculated-value {
+    border-radius: 14px;
+  }
+
+  .modal-footer {
+    position: relative !important;
+    bottom: auto !important;
+    z-index: 5;
+    margin: 0 !important;
+    padding: 12px 17px max(12px, env(safe-area-inset-bottom)) !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 9px !important;
+    border-top: 1px solid #e5ede9;
+    background: rgba(255, 255, 255, 0.98) !important;
+    box-shadow: 0 -10px 28px rgba(21, 55, 44, 0.055);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .modal-footer .secondary-button,
+  .modal-footer .primary-button {
+    width: 100% !important;
+    min-width: 0;
+    min-height: 52px !important;
+    margin: 0 !important;
+    padding: 0 14px !important;
+    justify-content: center;
+    border-radius: 15px !important;
+    font-size: 12px !important;
+    font-weight: 900;
+  }
+
+  .modal-footer .primary-button {
+    box-shadow: 0 10px 24px rgba(35, 143, 104, 0.18);
+  }
+}
+
+@media (max-width: 360px) {
+  .modal-header {
+    padding-inline: 15px !important;
+  }
+
+  .modal-body {
+    padding-inline: 15px;
+  }
+
+  .modal-body .form-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+
+  .modal-footer {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+
+  .modal-header h2 {
+    font-size: 25px !important;
+  }
+}
+
+@media (max-height: 690px) and (max-width: 760px) {
+  .modal-header {
+    padding-top: 14px !important;
+    padding-bottom: 12px !important;
+  }
+
+  .modal-header h2 {
+    margin-top: 6px !important;
+    font-size: 24px !important;
+  }
+
+  .modal-body {
+    padding-top: 14px;
+    padding-bottom: 18px;
+  }
+
+  .modal-body .field {
+    margin-bottom: 12px;
+  }
+
+  .modal-footer .secondary-button,
+  .modal-footer .primary-button {
+    min-height: 48px !important;
+  }
+}
+
+/* =========================================================
+   M FINANCE.OS — MOBILE ENTRY MODAL HARMONY V4
+   Refinamento visual: largura útil maior, card flutuante, ritmos mais leves,
+   campos mais claros e rodapé menos pesado.
+   ========================================================= */
+
+@media (max-width: 760px) {
+  .modal-backdrop {
+    padding: max(12px, env(safe-area-inset-top)) 12px
+      max(8px, env(safe-area-inset-bottom)) !important;
+    align-items: flex-end !important;
+  }
+
+  .modal-card {
+    width: min(500px, 100%) !important;
+    max-height: calc(
+      100dvh - max(12px, env(safe-area-inset-top)) -
+        max(8px, env(safe-area-inset-bottom))
+    ) !important;
+    border: 1px solid rgba(207, 225, 218, 0.96) !important;
+    border-radius: 24px !important;
+    background: #fff !important;
+    box-shadow:
+      0 28px 72px rgba(12, 43, 34, 0.22),
+      0 2px 10px rgba(12, 43, 34, 0.06) !important;
+  }
+
+  .modal-header {
+    min-height: 86px;
+    padding: 15px 16px 13px !important;
+    align-items: center !important;
+    border-bottom: 1px solid #edf2ef !important;
+    border-radius: 24px 24px 0 0;
+    background: linear-gradient(180deg, #ffffff 0%, #fcfefd 100%) !important;
+  }
+
+  .modal-header .eyebrow {
+    min-height: 22px;
+    padding-inline: 8px;
+    color: #2c7d61;
+    background: #edf8f3;
+    font-size: 7px;
+    letter-spacing: 0.08em;
+  }
+
+  .modal-header h2 {
+    margin-top: 6px !important;
+    color: #17332d;
+    font-size: clamp(23px, 6.6vw, 28px) !important;
+    line-height: 1.04;
+    letter-spacing: -0.04em !important;
+  }
+
+  .modal-close-button {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    flex-basis: 40px;
+    margin: 0 !important;
+    border: 1px solid #e7efeb !important;
+    border-radius: 12px !important;
+    color: #71817b !important;
+    background: #f8fbfa !important;
+  }
+
+  .modal-close-button:active:not(:disabled) {
+    transform: scale(0.97);
+    background: #f0f6f3 !important;
+  }
+
+  .modal-body {
+    padding: 16px 16px 18px !important;
+    background: linear-gradient(180deg, #fbfdfc 0%, #ffffff 18%, #ffffff 100%);
+    scroll-padding-top: 14px;
+    scroll-padding-bottom: 20px;
+    scrollbar-width: none;
+  }
+
+  .modal-body::-webkit-scrollbar {
+    display: none;
+  }
+
+  .modal-body .field {
+    margin-bottom: 12px;
+    gap: 6px;
+  }
+
+  .modal-body .field > span {
+    margin: 0;
+    color: #5d7069;
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 0.005em;
+  }
+
+  .modal-body .form-grid {
+    gap: 9px !important;
+  }
+
+  .modal-card input,
+  .modal-card select,
+  .modal-card textarea,
+  .modal-card .money-input {
+    min-height: 48px !important;
+    border-color: #dce8e3 !important;
+    border-radius: 13px !important;
+    background: #ffffff !important;
+    box-shadow: 0 1px 0 rgba(20, 57, 45, 0.02) inset;
+    transition:
+      border-color 150ms ease,
+      box-shadow 150ms ease,
+      background 150ms ease;
+  }
+
+  .modal-card input,
+  .modal-card select,
+  .modal-card textarea,
+  .modal-card .money-input input {
+    color: #243a34;
+    font-size: 16px !important;
+  }
+
+  .modal-card input::placeholder,
+  .modal-card textarea::placeholder {
+    color: #a3afab;
+    opacity: 1;
+  }
+
+  .modal-card input:focus,
+  .modal-card select:focus,
+  .modal-card textarea:focus,
+  .modal-card .money-input:focus-within {
+    border-color: #82bda7 !important;
+    outline: none !important;
+    background: #fff !important;
+    box-shadow: 0 0 0 3px rgba(47, 143, 107, 0.09) !important;
+  }
+
+  .modal-card .money-input {
+    padding-inline: 12px !important;
+  }
+
+  .modal-card .money-input > span {
+    color: #7d8f88;
+    font-size: 10px;
+    font-weight: 900;
+  }
+
+  .modal-card .money-input input {
+    min-height: 46px !important;
+  }
+
+  .modal-card .form-note,
+  .modal-card .calculated-value,
+  .modal-body .form-offline-note,
+  .modal-body .form-submit-error {
+    border-radius: 13px !important;
+  }
+
+  .modal-footer {
+    padding: 10px 16px 12px !important;
+    grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+    gap: 8px !important;
+    border-top: 1px solid #edf2ef !important;
+    border-radius: 0 0 24px 24px;
+    background: #ffffff !important;
+    box-shadow: 0 -8px 22px rgba(23, 61, 49, 0.035);
+  }
+
+  .modal-footer .secondary-button,
+  .modal-footer .primary-button {
+    min-height: 48px !important;
+    border-radius: 13px !important;
+    font-size: 12px !important;
+    letter-spacing: -0.01em;
+  }
+
+  .modal-footer .secondary-button {
+    color: #344a43;
+    border-color: #dce7e2;
+    background: #f8fbfa;
+    box-shadow: none;
+  }
+
+  .modal-footer .primary-button {
+    border: 0;
+    color: #fff;
+    background: linear-gradient(135deg, #238b68, #2fa77d);
+    box-shadow: 0 9px 20px rgba(35, 143, 104, 0.17);
+  }
+}
+
+/* Parcelas: em celulares estreitos, datas e contadores respiram melhor empilhados. */
+@media (max-width: 430px) {
+  .modal-card[data-entry-type="parcelas"] .form-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .modal-backdrop {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+  .modal-header,
+  .modal-body,
+  .modal-footer {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  .modal-header h2 {
+    font-size: 23px !important;
+  }
+}
+
+@media (max-height: 690px) and (max-width: 760px) {
+  .modal-header {
+    min-height: 76px;
+    padding-top: 12px !important;
+    padding-bottom: 10px !important;
+  }
+
+  .modal-header h2 {
+    margin-top: 5px !important;
+    font-size: 22px !important;
+  }
+
+  .modal-body {
+    padding-top: 13px !important;
+    padding-bottom: 15px !important;
+  }
+
+  .modal-body .field {
+    margin-bottom: 10px;
+  }
+
+  .modal-card input,
+  .modal-card select,
+  .modal-card textarea,
+  .modal-card .money-input {
+    min-height: 46px !important;
+  }
+
+  .modal-footer .secondary-button,
+  .modal-footer .primary-button {
+    min-height: 46px !important;
+  }
+}
+
+/* =========================================================
+   M FINANCE.OS — APP CATEGORY PICKER V5
+   Substitui o datalist nativo por um seletor visual próprio do produto.
+   ========================================================= */
+
+.category-field {
+  position: relative;
+  z-index: 8;
+}
+
+.category-picker {
+  position: relative;
+  min-width: 0;
+}
+
+.category-picker-control {
+  position: relative;
+  min-width: 0;
+}
+
+.category-picker-control > input {
+  width: 100%;
+  padding-right: 48px !important;
+}
+
+.category-picker-toggle {
+  width: 42px;
+  height: 42px;
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  z-index: 2;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 11px;
+  color: #6c7d77;
+  background: transparent;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition:
+    color 150ms ease,
+    background 150ms ease,
+    transform 150ms ease;
+}
+
+.category-picker-toggle:hover {
+  color: #246f56;
+  background: #f0f8f4;
+}
+
+.category-picker.is-open .category-picker-toggle {
+  color: #24765a;
+}
+
+.category-picker.is-open .category-picker-toggle svg {
+  transform: rotate(180deg);
+}
+
+.category-picker-toggle svg {
+  transition: transform 160ms ease;
+}
+
+.category-picker-menu {
+  width: 100%;
+  max-height: 238px;
+  position: absolute;
+  z-index: 120;
+  top: calc(100% + 7px);
+  left: 0;
+  padding: 7px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border: 1px solid #d9e7e1;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.985);
+  box-shadow:
+    0 18px 42px rgba(20, 57, 45, 0.16),
+    0 3px 10px rgba(20, 57, 45, 0.055);
+  backdrop-filter: blur(16px);
+  scrollbar-width: thin;
+  scrollbar-color: #c5d5cf transparent;
+}
+
+.category-picker-menu::-webkit-scrollbar {
+  width: 5px;
+}
+
+.category-picker-menu::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.category-picker-menu::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: #c5d5cf;
+}
+
+.category-picker-option {
+  width: 100%;
+  min-height: 42px;
+  padding: 0 11px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border: 0;
+  border-radius: 10px;
+  color: #31463f;
+  background: transparent;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 760;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    color 130ms ease,
+    background 130ms ease;
+}
+
+.category-picker-option:hover,
+.category-picker-option:focus-visible {
+  outline: none;
+  color: #206c51;
+  background: #f2f9f6;
+}
+
+.category-picker-option.is-selected {
+  color: #1e7053;
+  background: linear-gradient(135deg, #eaf7f1, #f2fbf7);
+  font-weight: 850;
+}
+
+.category-picker-option.is-selected svg {
+  flex: 0 0 auto;
+  color: #2c9871;
+}
+
+.category-picker-empty {
+  padding: 12px 11px;
+  color: #7d8c87;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.field.has-error .category-picker-control > input {
+  border-color: #df8e8e !important;
+  box-shadow: 0 0 0 3px rgba(201, 91, 91, 0.08) !important;
+}
+
+@media (max-width: 760px) {
+  .category-field {
+    z-index: 18;
+  }
+
+  .category-picker-menu {
+    max-height: min(244px, 36dvh);
+    padding: 6px;
+    border-radius: 14px;
+    box-shadow:
+      0 20px 44px rgba(18, 55, 43, 0.18),
+      0 3px 10px rgba(18, 55, 43, 0.05);
+  }
+
+  .category-picker-option {
+    min-height: 44px;
+    padding-inline: 12px;
+    border-radius: 10px;
+    font-size: 12px;
+  }
+
+  .category-picker-toggle {
+    width: 42px;
+    height: 42px;
+    right: 3px;
+  }
+}
+
+/* =========================================================
+   M FINANCE.OS — V2.0.1 / TOAST COM DESFAZER
+   Ações reversíveis de renda, gasto e parcela.
+   ========================================================= */
+
+.toast-copy {
+  min-width: 0;
+  display: grid;
+  gap: 7px;
+  line-height: 1.4;
+}
+
+.toast-copy > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.toast.has-action {
+  align-items: start;
+}
+
+.toast.has-action .toast-icon,
+.toast.has-action .toast-close {
+  margin-top: 1px;
+}
+
+.toast-action {
+  width: fit-content;
+  min-width: 0;
+  height: 30px;
+  padding: 0 10px;
+  border: 1px solid #c8e3d8;
+  border-radius: 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: #22684f;
+  background: #edf8f3;
+  font: inherit;
+  font-size: 9px;
+  font-weight: 900;
+  cursor: pointer;
+  transition:
+    transform 150ms ease,
+    border-color 150ms ease,
+    background 150ms ease;
+}
+
+.toast-action:hover:not(:disabled) {
+  transform: translateY(-1px);
+  border-color: #add5c4;
+  background: #e2f4ec;
+}
+
+.toast-action:focus-visible {
+  outline: 3px solid rgba(47, 143, 107, 0.14);
+  outline-offset: 2px;
+}
+
+.toast-action:disabled,
+.toast-close:disabled {
+  cursor: wait;
+  opacity: 0.62;
+}
+
+.toast-close {
+  cursor: pointer;
+}
+
+@media (max-width: 760px) {
+  .toast.has-action {
+    min-height: 66px;
+    padding: 12px;
+  }
+
+  .toast-action {
+    min-height: 31px;
+    font-size: 9px;
+  }
+}
+
+/* =========================================================
+   M FINANCE.OS — V2.0.1 / ACTIVE RECURRENCES
+   Gestão de rendas e gastos recorrentes dentro de Minha conta.
+   ========================================================= */
+
+.account-modern-recurring {
+  margin-top: 14px;
+  padding: 18px;
+  border: 1px solid #d9e7e2;
+  border-radius: 20px;
+  background:
+    radial-gradient(
+      circle at 96% 4%,
+      rgba(47, 143, 107, 0.07),
+      transparent 25%
+    ),
+    linear-gradient(135deg, #ffffff, #f9fcfb);
+  box-shadow: 0 11px 28px rgba(27, 57, 48, 0.035);
+}
+
+.account-modern-recurring-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.account-modern-recurring-title {
+  min-width: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.account-modern-recurring-icon {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  color: var(--account-green);
+  background: var(--account-green-soft);
+}
+
+.account-modern-recurring-title small,
+.account-modern-recurring-title h2,
+.account-modern-recurring-title p {
+  display: block;
+}
+
+.account-modern-recurring-title small {
+  color: #7f918a;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 6.5px;
+  font-weight: 900;
+  letter-spacing: 0.075em;
+}
+
+.account-modern-recurring-title h2 {
+  margin: 4px 0 0;
+  color: #1b3731;
+  font-size: 15px;
+  letter-spacing: -0.02em;
+}
+
+.account-modern-recurring-title p {
+  max-width: 720px;
+  margin: 5px 0 0;
+  color: #778781;
+  font-size: 8.5px;
+  line-height: 1.55;
+}
+
+.account-modern-recurring-count {
+  min-height: 29px;
+  padding: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  border: 1px solid var(--account-green-border);
+  border-radius: 999px;
+  color: var(--account-green);
+  background: var(--account-green-soft);
+  font-size: 7px;
+  font-weight: 900;
+}
+
+.account-modern-recurring-grid {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.account-recurring-group {
+  min-width: 0;
+  padding: 13px;
+  border: 1px solid #e0e9e5;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.account-recurring-group--rendas {
+  border-color: #d1e8de;
+  background: linear-gradient(145deg, rgba(239, 249, 245, 0.72), #fff 58%);
+}
+
+.account-recurring-group--gastos {
+  border-color: #eadfbf;
+  background: linear-gradient(145deg, rgba(255, 249, 235, 0.7), #fff 58%);
+}
+
+.account-recurring-group-heading {
+  min-height: 36px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.account-recurring-group-heading strong,
+.account-recurring-group-heading span {
+  display: block;
+}
+
+.account-recurring-group-heading strong {
+  color: #1f3934;
+  font-size: 10px;
+}
+
+.account-recurring-group-heading span {
+  margin-top: 3px;
+  color: #85928d;
+  font-size: 7px;
+  line-height: 1.4;
+}
+
+.account-recurring-group-heading small {
+  min-width: 24px;
+  height: 24px;
+  padding: 0 7px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  color: #61726c;
+  background: rgba(255, 255, 255, 0.82);
+  font-size: 7px;
+  font-weight: 900;
+}
+
+.account-recurring-list {
+  margin-top: 10px;
+  display: grid;
+  gap: 8px;
+}
+
+.account-recurring-item {
+  min-width: 0;
+  padding: 11px;
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #e4ece8;
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.account-recurring-item-icon {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--account-green);
+  background: var(--account-green-soft);
+}
+
+.account-recurring-group--gastos .account-recurring-item-icon {
+  color: #956717;
+  background: #fff5df;
+}
+
+.account-recurring-item-copy {
+  min-width: 0;
+}
+
+.account-recurring-item-title {
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.account-recurring-item-title strong {
+  min-width: 0;
+  overflow: hidden;
+  color: #223b35;
+  font-size: 9.5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.account-recurring-item-title > span {
+  flex: 0 0 auto;
+  color: #315d50;
+  font-size: 8px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.account-recurring-group--gastos .account-recurring-item-title > span {
+  color: #8a6418;
+}
+
+.account-recurring-item-detail {
+  display: block;
+  margin-top: 3px;
+  overflow: hidden;
+  color: #89958f;
+  font-size: 7px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.account-recurring-item-meta {
+  margin-top: 7px;
+  display: flex;
+  align-items: center;
+  gap: 5px 9px;
+  flex-wrap: wrap;
+}
+
+.account-recurring-item-meta > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #7c8984;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 6.5px;
+  font-weight: 800;
+}
+
+.account-recurring-item-meta svg {
+  flex: 0 0 auto;
+}
+
+.account-recurring-stop {
+  min-height: 32px;
+  padding: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid #dce6e2;
+  border-radius: 10px;
+  color: #6d7e78;
+  background: #fff;
+  font-size: 7.5px;
+  font-weight: 900;
+  cursor: pointer;
+  transition:
+    transform 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease,
+    background 150ms ease;
+}
+
+.account-recurring-stop:hover {
+  transform: translateY(-1px);
+  color: #8a6418;
+  border-color: #e4cc91;
+  background: #fffaf0;
+}
+
+.account-recurring-stop:focus-visible {
+  outline: 3px solid rgba(47, 143, 107, 0.12);
+  outline-offset: 2px;
+}
+
+.account-recurring-empty {
+  margin-top: 10px;
+  padding: 12px;
+  border: 1px dashed #dce7e2;
+  border-radius: 12px;
+  color: #8a9792;
+  background: rgba(250, 252, 251, 0.78);
+  font-size: 7.5px;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.account-modern-recurring-empty-state {
+  margin-top: 16px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  border: 1px dashed #d5e4de;
+  border-radius: 15px;
+  background: rgba(250, 252, 251, 0.86);
+}
+
+.account-modern-recurring-empty-state > span {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  color: #7c9189;
+  background: #eef5f2;
+}
+
+.account-modern-recurring-empty-state strong,
+.account-modern-recurring-empty-state p {
+  display: block;
+}
+
+.account-modern-recurring-empty-state strong {
+  color: #53645e;
+  font-size: 9px;
+}
+
+.account-modern-recurring-empty-state p {
+  margin: 4px 0 0;
+  color: #8a9792;
+  font-size: 7.5px;
+  line-height: 1.45;
+}
+
+@media (max-width: 900px) {
+  .account-modern-recurring-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .account-modern-recurring {
+    margin-top: 10px;
+    padding: 14px;
+    border-radius: 17px;
+  }
+
+  .account-modern-recurring-heading {
+    gap: 12px;
+  }
+
+  .account-modern-recurring-title {
+    gap: 10px;
+  }
+
+  .account-modern-recurring-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 11px;
+  }
+
+  .account-modern-recurring-title h2 {
+    font-size: 13px;
+  }
+
+  .account-modern-recurring-title p {
+    font-size: 8px;
+  }
+
+  .account-modern-recurring-count {
+    min-height: 26px;
+    padding-inline: 8px;
+    font-size: 6.5px;
+  }
+
+  .account-modern-recurring-grid {
+    margin-top: 13px;
+    gap: 8px;
+  }
+
+  .account-recurring-group {
+    padding: 11px;
+    border-radius: 14px;
+  }
+
+  .account-recurring-item {
+    grid-template-columns: 30px minmax(0, 1fr) auto;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+  .account-recurring-item-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .account-recurring-stop {
+    min-width: 34px;
+    width: 34px;
+    padding: 0;
+  }
+
+  .account-recurring-stop span {
+    display: none;
+  }
+}
+
+@media (max-width: 430px) {
+  .account-modern-recurring-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .account-modern-recurring-count {
+    margin-left: 46px;
+    margin-top: -5px;
+  }
+
+  .account-recurring-item {
+    grid-template-columns: 30px minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .account-recurring-stop {
+    width: auto;
+    min-width: 0;
+    grid-column: 2;
+    justify-self: start;
+    padding: 0 9px;
+  }
+
+  .account-recurring-stop span {
+    display: inline;
+  }
+
+  .account-recurring-item-title {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .account-recurring-item-title > span {
+    font-size: 7.5px;
+  }
+}
+
+/* =========================================================
+   M FINANCE.OS — V2.0.1 / APP SELECTS
+   Selects próprios do produto para Tipo, Status e Recorrência.
+   Remove o menu nativo azul/preto e mantém o mesmo padrão do seletor
+   de categorias, inclusive no mobile.
+   ========================================================= */
+
+.app-select-field {
+  position: relative;
+  z-index: 6;
+}
+
+.app-select-field.is-open {
+  z-index: 36;
+}
+
+.app-select {
+  position: relative;
+  min-width: 0;
+}
+
+.app-select-trigger {
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  padding: 0 12px 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border: 1px solid #dce8e3;
+  border-radius: 13px;
+  color: #243a34;
+  background: #fff;
+  box-shadow: 0 1px 0 rgba(20, 57, 45, 0.02) inset;
+  font: inherit;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease,
+    background 150ms ease;
+}
+
+.app-select-trigger:hover:not(:disabled) {
+  border-color: #c2dbd1;
+  background: #fcfefd;
+}
+
+.app-select-trigger:focus-visible,
+.app-select.is-open .app-select-trigger {
+  border-color: #82bda7;
+  outline: none;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(47, 143, 107, 0.09);
+}
+
+.app-select-trigger:disabled {
+  cursor: not-allowed;
+  color: #788881;
+  border-color: #e2e9e6;
+  background: #f5f8f7;
+  opacity: 0.78;
+}
+
+.app-select-value {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.app-select-chevron {
+  flex: 0 0 auto;
+  color: #6c7d77;
+  transition:
+    transform 160ms ease,
+    color 160ms ease;
+}
+
+.app-select.is-open .app-select-chevron {
+  color: #24765a;
+  transform: rotate(180deg);
+}
+
+.app-select-menu {
+  width: 100%;
+  max-height: 232px;
+  position: absolute;
+  z-index: 180;
+  left: 0;
+  padding: 6px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border: 1px solid #d9e7e1;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.99);
+  box-shadow:
+    0 18px 42px rgba(20, 57, 45, 0.16),
+    0 3px 10px rgba(20, 57, 45, 0.055);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  scrollbar-width: thin;
+  scrollbar-color: #c5d5cf transparent;
+  animation: app-select-in 130ms ease-out;
+  transform-origin: top center;
+}
+
+.app-select-menu--bottom {
+  top: calc(100% + 7px);
+}
+
+.app-select-menu--top {
+  bottom: calc(100% + 7px);
+  transform-origin: bottom center;
+}
+
+.app-select-menu::-webkit-scrollbar {
+  width: 5px;
+}
+
+.app-select-menu::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.app-select-menu::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: #c5d5cf;
+}
+
+.app-select-option {
+  width: 100%;
+  min-height: 42px;
+  padding: 0 11px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border: 0;
+  border-radius: 10px;
+  color: #31463f;
+  background: transparent;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 760;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    color 130ms ease,
+    background 130ms ease;
+}
+
+.app-select-option:hover,
+.app-select-option:focus-visible {
+  outline: none;
+  color: #206c51;
+  background: #f2f9f6;
+}
+
+.app-select-option.is-selected {
+  color: #1e7053;
+  background: linear-gradient(135deg, #eaf7f1, #f2fbf7);
+  font-weight: 850;
+}
+
+.app-select-option.is-selected svg {
+  flex: 0 0 auto;
+  color: #2c9871;
+}
+
+.field.has-error .app-select-trigger {
+  border-color: #df8e8e !important;
+  box-shadow: 0 0 0 3px rgba(201, 91, 91, 0.08) !important;
+}
+
+@keyframes app-select-in {
+  from {
+    opacity: 0;
+    transform: translateY(-3px) scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.app-select-menu--top {
+  animation-name: app-select-in-top;
+}
+
+@keyframes app-select-in-top {
+  from {
+    opacity: 0;
+    transform: translateY(3px) scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 760px) {
+  .app-select-trigger {
+    min-height: 48px;
+    border-radius: 13px;
+    font-size: 16px;
+  }
+
+  .app-select-menu {
+    max-height: min(232px, 34dvh);
+    padding: 6px;
+    border-radius: 14px;
+    box-shadow:
+      0 20px 44px rgba(18, 55, 43, 0.18),
+      0 3px 10px rgba(18, 55, 43, 0.05);
+  }
+
+  .app-select-option {
+    min-height: 44px;
+    padding-inline: 12px;
+    border-radius: 10px;
+    font-size: 12px;
+  }
+}
+
+@media (max-height: 690px) and (max-width: 760px) {
+  .app-select-trigger {
+    min-height: 46px;
+  }
+
+  .app-select-menu {
+    max-height: min(200px, 30dvh);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-select-menu {
+    animation: none;
+  }
+
+  .app-select-chevron {
+    transition: none;
+  }
+}

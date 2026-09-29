@@ -8,6 +8,8 @@ export function IncomePage({
   onDelete,
   onMarkReceived,
   receiptBusyId,
+  onReorder,
+  reorderBusyId,
 }) {
   return (
     <ListPage
@@ -24,6 +26,8 @@ export function IncomePage({
         onDelete={onDelete}
         onMarkReceived={onMarkReceived}
         receiptBusyId={receiptBusyId}
+        onReorder={onReorder}
+        reorderBusyId={reorderBusyId}
       />
     </ListPage>
   );
@@ -36,6 +40,8 @@ export function InstallmentsPage({
   onEdit,
   onDelete,
   onTogglePaid,
+  onReorder,
+  reorderBusyId,
 }) {
   return (
     <ListPage
@@ -52,6 +58,8 @@ export function InstallmentsPage({
         onEdit={onEdit}
         onDelete={onDelete}
         onTogglePaid={onTogglePaid}
+        onReorder={onReorder}
+        reorderBusyId={reorderBusyId}
       />
     </ListPage>
   );
@@ -64,6 +72,8 @@ export function ExpensesPage({
   onDelete,
   onMarkPaid,
   paymentBusyId,
+  onReorder,
+  reorderBusyId,
 }) {
   return (
     <ListPage
@@ -81,12 +91,21 @@ export function ExpensesPage({
         onDelete={onDelete}
         onMarkPaid={onMarkPaid}
         paymentBusyId={paymentBusyId}
+        onReorder={onReorder}
+        reorderBusyId={reorderBusyId}
       />
     </ListPage>
   );
 }
 
-export function AllocationsPage({ items, onAdd, onEdit, onDelete }) {
+export function AllocationsPage({
+  items,
+  onAdd,
+  onEdit,
+  onDelete,
+  onReorder,
+  reorderBusyId,
+}) {
   return (
     <ListPage
       title="Reserva & Investimentos"
@@ -101,6 +120,8 @@ export function AllocationsPage({ items, onAdd, onEdit, onDelete }) {
         onAdd={onAdd}
         onEdit={onEdit}
         onDelete={onDelete}
+        onReorder={onReorder}
+        reorderBusyId={reorderBusyId}
       />
     </ListPage>
   );

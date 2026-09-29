@@ -1,9 +1,14 @@
 import {
+  CalendarClock,
+  CircleStop,
   Download,
   LogOut,
   MonitorSmartphone,
+  ReceiptText,
+  Repeat2,
   ShieldCheck,
   Trash2,
+  TrendingUp,
   UserRound,
 } from "lucide-react";
 import {
@@ -11,6 +16,7 @@ import {
   monthLabel,
   parseMonth,
 } from "../utils/date";
+import { money } from "../utils/finance";
 
 function AccountActionCard({
   icon: Icon,
@@ -47,6 +53,104 @@ function AccountActionCard({
   );
 }
 
+function recurrenceMonthLabel(value) {
+  const key = String(value || "").slice(0, 7);
+
+  if (!/^\d{4}-\d{2}$/.test(key)) {
+    return "Data não informada";
+  }
+
+  return capitalize(monthLabel.format(parseMonth(key)));
+}
+
+function RecurrenceItem({ type, item, onEndRecurrence }) {
+  const isIncome = type === "rendas";
+  const title = isIncome
+    ? item.source || item.description || "Renda recorrente"
+    : item.category || item.description || "Gasto recorrente";
+  const detail = isIncome
+    ? item.description || item.type || "Renda mensal"
+    : item.description || item.category || "Gasto mensal";
+  const start = item.recurrenceStartDate || item.date;
+
+  return (
+    <article className="account-recurring-item">
+      <div className="account-recurring-item-icon" aria-hidden="true">
+        {isIncome ? <TrendingUp size={17} /> : <ReceiptText size={17} />}
+      </div>
+
+      <div className="account-recurring-item-copy">
+        <div className="account-recurring-item-title">
+          <strong>{title}</strong>
+          <span>{money.format(Number(item.amount || 0))}</span>
+        </div>
+
+        <span className="account-recurring-item-detail">
+          {detail}
+        </span>
+
+        <div className="account-recurring-item-meta">
+          <span>
+            <Repeat2 size={12} />
+            Todo mês
+          </span>
+          <span>
+            <CalendarClock size={12} />
+            Desde {recurrenceMonthLabel(start)}
+          </span>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        className="account-recurring-stop"
+        onClick={() => onEndRecurrence?.(type, item)}
+        aria-label={`Encerrar recorrência de ${title}`}
+      >
+        <CircleStop size={15} />
+        <span>Encerrar</span>
+      </button>
+    </article>
+  );
+}
+
+function RecurrenceGroup({
+  title,
+  subtitle,
+  type,
+  items,
+  onEndRecurrence,
+}) {
+  return (
+    <div className={`account-recurring-group account-recurring-group--${type}`}>
+      <div className="account-recurring-group-heading">
+        <div>
+          <strong>{title}</strong>
+          <span>{subtitle}</span>
+        </div>
+        <small>{items.length}</small>
+      </div>
+
+      {items.length ? (
+        <div className="account-recurring-list">
+          {items.map((item) => (
+            <RecurrenceItem
+              key={`${type}-${item.id}`}
+              type={type}
+              item={item}
+              onEndRecurrence={onEndRecurrence}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="account-recurring-empty">
+          Nenhuma recorrência ativa neste grupo.
+        </div>
+      )}
+    </div>
+  );
+}
+
 export function AccountPage({
   user,
   month,
@@ -55,6 +159,8 @@ export function AccountPage({
   onLogout,
   onDeleteAccount,
   pwa,
+  recurrences = { rendas: [], gastos: [] },
+  onEndRecurrence,
 }) {
   const currentMonthLabel = capitalize(
     monthLabel.format(parseMonth(month))
@@ -66,6 +172,11 @@ export function AccountPage({
     user.email ||
     "M"
   )[0]?.toUpperCase();
+
+  const incomeRecurrences = recurrences.rendas || [];
+  const expenseRecurrences = recurrences.gastos || [];
+  const recurrenceTotal =
+    incomeRecurrences.length + expenseRecurrences.length;
 
   return (
     <div className="content account-modern-page">
@@ -119,6 +230,62 @@ export function AccountPage({
             ID da conta · {user.uid}
           </small>
         </div>
+      </section>
+
+      <section className="account-modern-recurring">
+        <div className="account-modern-recurring-heading">
+          <div className="account-modern-recurring-title">
+            <span className="account-modern-recurring-icon">
+              <Repeat2 size={20} />
+            </span>
+
+            <div>
+              <small>AUTOMAÇÕES MENSAIS</small>
+              <h2>Recorrências ativas</h2>
+              <p>
+                Veja o que continua sendo projetado todos os meses e
+                encerre uma recorrência sem apagar o histórico anterior.
+              </p>
+            </div>
+          </div>
+
+          <span className="account-modern-recurring-count">
+            {recurrenceTotal} {recurrenceTotal === 1 ? "ativa" : "ativas"}
+          </span>
+        </div>
+
+        {recurrenceTotal ? (
+          <div className="account-modern-recurring-grid">
+            <RecurrenceGroup
+              title="Rendas"
+              subtitle="Entradas que continuam se repetindo"
+              type="rendas"
+              items={incomeRecurrences}
+              onEndRecurrence={onEndRecurrence}
+            />
+
+            <RecurrenceGroup
+              title="Gastos"
+              subtitle="Compromissos que continuam se repetindo"
+              type="gastos"
+              items={expenseRecurrences}
+              onEndRecurrence={onEndRecurrence}
+            />
+          </div>
+        ) : (
+          <div className="account-modern-recurring-empty-state">
+            <span>
+              <Repeat2 size={20} />
+            </span>
+            <div>
+              <strong>Nenhuma recorrência ativa</strong>
+              <p>
+                Quando você marcar uma renda ou gasto como recorrente,
+                ele aparecerá aqui para gerenciamento.
+              </p>
+            </div>
+          </div>
+        )}
       </section>
 
       <section className="account-modern-grid">
