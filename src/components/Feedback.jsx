@@ -1,11 +1,25 @@
-import { useEffect } from "react";
-import { AlertTriangle, Check, Cloud, CloudOff, Info, LoaderCircle, X } from "lucide-react";
-
+import { useEffect, useState } from "react";
+import {
+  AlertTriangle,
+  Check,
+  Cloud,
+  CloudOff,
+  Info,
+  LoaderCircle,
+  Undo2,
+  X,
+} from "lucide-react";
 
 export function SyncStatus({ online, syncing }) {
   const state = !online ? "offline" : syncing ? "syncing" : "online";
-  const Icon = state === "offline" ? CloudOff : state === "syncing" ? LoaderCircle : Cloud;
-  const label = state === "offline" ? "Sem conexão" : state === "syncing" ? "Sincronizando..." : "Sincronizado";
+  const Icon =
+    state === "offline" ? CloudOff : state === "syncing" ? LoaderCircle : Cloud;
+  const label =
+    state === "offline"
+      ? "Sem conexão"
+      : state === "syncing"
+        ? "Sincronizando..."
+        : "Sincronizado";
 
   return (
     <div className={`sync-status ${state}`} aria-live="polite" title={label}>
@@ -30,18 +44,85 @@ export function OfflineBanner({ online }) {
 }
 
 function Toast({ toast, onDismiss }) {
-  useEffect(() => {
-    const timer = window.setTimeout(() => onDismiss(toast.id), 3600);
-    return () => window.clearTimeout(timer);
-  }, [toast.id, onDismiss]);
+  const [actionBusy, setActionBusy] = useState(false);
 
-  const Icon = toast.type === "error" ? AlertTriangle : toast.type === "info" ? Info : Check;
+  useEffect(() => {
+    if (actionBusy) return undefined;
+
+    const timer = window.setTimeout(
+      () => onDismiss(toast.id),
+      Number(toast.duration) > 0 ? Number(toast.duration) : 3600
+    );
+
+    return () => window.clearTimeout(timer);
+  }, [actionBusy, toast.duration, toast.id, onDismiss]);
+
+  const Icon =
+    toast.type === "error"
+      ? AlertTriangle
+      : toast.type === "info"
+        ? Info
+        : Check;
+
+  const hasAction =
+    Boolean(toast.actionLabel) && typeof toast.onAction === "function";
+
+  async function handleAction() {
+    if (!hasAction || actionBusy) return;
+
+    setActionBusy(true);
+
+    try {
+      const result = await toast.onAction();
+
+      if (result !== false) {
+        onDismiss(toast.id);
+        return;
+      }
+
+      setActionBusy(false);
+    } catch (actionError) {
+      console.error("Erro ao executar ação do aviso:", actionError);
+      setActionBusy(false);
+    }
+  }
 
   return (
-    <div className={`toast ${toast.type || "success"}`} role="status">
-      <span className="toast-icon"><Icon size={16} /></span>
-      <span>{toast.message}</span>
-      <button type="button" onClick={() => onDismiss(toast.id)} aria-label="Fechar aviso">
+    <div
+      className={`toast ${toast.type || "success"} ${hasAction ? "has-action" : ""}`}
+      role="status"
+    >
+      <span className="toast-icon">
+        <Icon size={16} />
+      </span>
+
+      <div className="toast-copy">
+        <span>{toast.message}</span>
+
+        {hasAction && (
+          <button
+            type="button"
+            className="toast-action"
+            onClick={handleAction}
+            disabled={actionBusy}
+          >
+            {actionBusy ? (
+              <LoaderCircle size={13} className="sync-spin" />
+            ) : (
+              <Undo2 size={13} />
+            )}
+            <span>{actionBusy ? "Desfazendo..." : toast.actionLabel}</span>
+          </button>
+        )}
+      </div>
+
+      <button
+        type="button"
+        className="toast-close"
+        onClick={() => onDismiss(toast.id)}
+        aria-label="Fechar aviso"
+        disabled={actionBusy}
+      >
         <X size={15} />
       </button>
     </div>
@@ -58,12 +139,30 @@ export function ToastViewport({ toasts, onDismiss }) {
   );
 }
 
-export function ConfirmDialog({ open, title, message, confirmLabel = "Excluir", danger = true, busy, onCancel, onConfirm }) {
+export function ConfirmDialog({
+  open,
+  title,
+  message,
+  confirmLabel = "Excluir",
+  danger = true,
+  busy,
+  onCancel,
+  onConfirm,
+}) {
   if (!open) return null;
 
   return (
-    <div className="modal-backdrop confirm-backdrop" onMouseDown={busy ? undefined : onCancel}>
-      <div className="confirm-card" role="alertdialog" aria-modal="true" aria-labelledby="confirm-title" onMouseDown={(event) => event.stopPropagation()}>
+    <div
+      className="modal-backdrop confirm-backdrop"
+      onMouseDown={busy ? undefined : onCancel}
+    >
+      <div
+        className="confirm-card"
+        role="alertdialog"
+        aria-modal="true"
+        aria-labelledby="confirm-title"
+        onMouseDown={(event) => event.stopPropagation()}
+      >
         <div className={danger ? "confirm-symbol danger" : "confirm-symbol"}>
           <AlertTriangle size={22} />
         </div>
@@ -73,8 +172,20 @@ export function ConfirmDialog({ open, title, message, confirmLabel = "Excluir", 
           <p>{message}</p>
         </div>
         <div className="confirm-actions">
-          <button type="button" className="secondary-button" onClick={onCancel} disabled={busy}>Cancelar</button>
-          <button type="button" className={danger ? "danger-button" : "primary-button"} onClick={onConfirm} disabled={busy}>
+          <button
+            type="button"
+            className="secondary-button"
+            onClick={onCancel}
+            disabled={busy}
+          >
+            Cancelar
+          </button>
+          <button
+            type="button"
+            className={danger ? "danger-button" : "primary-button"}
+            onClick={onConfirm}
+            disabled={busy}
+          >
             {busy ? "Processando..." : confirmLabel}
           </button>
         </div>
